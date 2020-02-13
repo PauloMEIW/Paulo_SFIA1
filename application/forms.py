@@ -1,7 +1,32 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField
+from wtforms import StringField, SubmitField, PasswordField, BooleanField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from application.models import Users
+
+
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
+
+class LoginForm(FlaskForm):
+    email = StringField('Email',
+        validators=[
+            DataRequired(),
+            Email()
+        ]
+    )
+
+    password = PasswordField('Password',
+        validators=[
+            DataRequired()
+        ]
+    )
+
+    remember = BooleanField('Remember Me')
+    submit = SubmitField('Login')
+
+
+
+
 
 
 class RegistrationForm(FlaskForm):
@@ -57,3 +82,6 @@ class PostForm(FlaskForm):
         ]
     )
     submit = SubmitField('Post!')
+
+
+

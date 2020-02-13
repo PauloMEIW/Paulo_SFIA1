@@ -1,4 +1,17 @@
 from application import db
+from application import login_manager
+from flask_login import UserMixin
+
+@login_manager.user_loader
+def load_user(id):
+    return Users.query.get(int(id))
+
+# This is the top of your Users table
+
+class USers(db.Model, UserMixin)
+
+
+
 
 class Posts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
