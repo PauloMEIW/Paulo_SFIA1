@@ -1,4 +1,4 @@
-{% extends layout.html %}
+{% extends "layout.html" %}
 {% block body_content %}
     <h1>Register Page</h1>
     <p>Need an account? Sign up</p>
@@ -27,10 +27,6 @@
                         {% endfor %}
                     </div>
                 {% endif %}
-x
-      
-
-
                 {{ form.confirm_password.label }}
                 {{ form.confirm_password }}
                 {% if form.confirm_password.errors %}
