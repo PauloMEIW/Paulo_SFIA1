@@ -1,4 +1,4 @@
-# Flask App
+# SFIA Project
 
 ### Setup
 ```bash
