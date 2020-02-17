@@ -94,7 +94,7 @@ imagem dos tools usadosssssssssssss
 
 <a name="tech"></a>
 ### Technologies Used
-* [Trello](https://trello.com/b/VFRNnQYX/project-sfia) - Project MAnagemente
+* [Trello](https://trello.com/b/VFRNnQYX/project-sfia) - Project Management
 * SQLlite - Database
 * AAAAAAA - Deployment
 * Jenkins - CI Server
