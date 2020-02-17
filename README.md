@@ -50,7 +50,31 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+<a name="arch"></a>
+## Architecture
+
+<a name="erd"></a>
+### Entity Relationship Diagrams
+
+
+<a name="test"></a>
+## Testing
+
+<a name="rep"></a>
+### Report
+
+
+
+<a name="dep"></a>
+## Deployment
+
+<a name="tech"></a>
+### Technologies Used
+
+<a name="fro"></a>
+## Front End Design
+
 <a name="auth"></a>
-### Author
+## Author
 Paulo Ribeiro - DevOps Consultant
 2020
