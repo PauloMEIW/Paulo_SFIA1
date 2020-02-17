@@ -7,6 +7,8 @@ E-Commerce application
    * [Solution](#solution)
    * [Setup](#setup)
    
+[Project Management](#pro)
+   
 [Architecture](#arch)
    * [Entity Relationship Diagrams](#erd)
    * [Use Diagram](#use)
@@ -49,6 +51,11 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+<a name="pro"></a>
+## Project Management
+
+trelloooooooooooooo
+
 <a name="arch"></a>
 ## Architecture
 
@@ -83,6 +90,7 @@ imagem dos tools usadosssssssssssss
 <a name="tech"></a>
 ### Technologies Used
 * SQLlite - Database
+* Trello - Project Management
 * AAAAAAA - Deployment
 * Jenkins - CI Server
 * AAAAAA- Dependency Management
