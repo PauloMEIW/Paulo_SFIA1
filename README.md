@@ -1,4 +1,4 @@
-# SFIA Project - Solo Project at QA Consulting
+# SFIA Project 1 - at QA Consulting
 
 E-Commerce application
 
