@@ -7,6 +7,9 @@ E-Commerce application
    * [Solution](#solution)
    * [Setup](#setup)
    
+[Risk Assessment](#ris)
+
+
 [Project Management](#pro)
    
 [Architecture](#arch)
@@ -50,6 +53,9 @@ source venv/bin/activate
 # make sure our dependencies are installed
 pip install -r requirements.txt
 ```
+<a name="ris"></a>
+## Risk Assessment
+
 
 <a name="pro"></a>
 ## Project Management
