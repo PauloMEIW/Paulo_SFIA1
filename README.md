@@ -59,17 +59,33 @@ pip install -r requirements.txt
 
 <a name="test"></a>
 ## Testing
+????????????????   tests have been used for automated testing, and SonarLint/SonarQube for static reporting and refactoring.
 
 <a name="rep"></a>
 ### Report
 
+Picture and resuls of the test
 
 
 <a name="dep"></a>
 ## Deployment
+The build, test and deployment process was automated using Jenkins, with a webhook to GitHub which was triggered with every push event
+
+This application can be deployed both locally and externally through a virtual machine. The constants.js file has commented out options to switch from an external to local IP address.   edittttttttttttttttttttttttttt
+imagem dos tools usadosssssssssssss
 
 <a name="tech"></a>
 ### Technologies Used
+* SQLlite - Database
+* ##### - Deployment
+* Jenkins - CI Server
+* #####- Dependency Management
+* ####### - Test Reporting
+* ##### - Static Testing
+* [Git](https://github.com/PauloRibeiroIT/Paulo_SFIA1) - VCS
+* [Trello](https://trello.com/b/VFRNnQYX/project-sfia) - Project Tracking
+* GCP - Live Environment
+
 
 <a name="fro"></a>
 ## Front End Design
