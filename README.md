@@ -38,10 +38,8 @@ Aplication posses the capacity to manipulate a database ( CRUD - create, read, U
 <a name="solution"></a>
 ### Solution
 
+I decided to create a e-commerce application that would allow the user to create and update won account and add, update or delete producs from the list.
 
-
-I decided to create a personal yoga application that would allow the user to create poses and routines, as well as add and remove poses from each routine.
-The many to many relationship between poses and routines is working, where poses can be added and removed from routines.
 
 <a name="setup"></a>
 ### Setup
