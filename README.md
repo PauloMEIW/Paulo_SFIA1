@@ -7,23 +7,22 @@ E-Commerce application
    * [Solution](#solution)
    * [Setup](#setup)
    
-[Architecture](#architecture)
+[Architecture](#arch)
    * [Entity Relationship Diagrams](#erd)
-   * [Multi Tier Architechture Diagram](#mla)
+   * [Use Diagram](#use)
+   * [Class Diagram](#cla)
 	
 [Testing](#testing)
-   * [Report](#report)
+   * [Analyse Report](#report)
      
 [Deployment](#depl)
-   * [Technologies Used](#tech)
+   * [Technologies Used in the Development](#tech)
      
-[Front End Design](#FE)
-
-[Improvements for the Future](#improve)
-
-[Acknowledgements](#ack)
+[Interface](#inte)
 
 [Author](#auth)
+
+
 
 <a name="brief"></a>
 ## The Brief
@@ -57,12 +56,19 @@ pip install -r requirements.txt
 ### Entity Relationship Diagrams
 
 
-<a name="test"></a>
+<a name="use"></a>
+### Use Diagram
+
+<a name="cla"></a>
+### Class Diagram
+
+
+<a name="testing"></a>
 ## Testing
 ????????????????   tests have been used for automated testing, and SonarLint/SonarQube for static reporting and refactoring.
 
-<a name="rep"></a>
-### Report
+<a name="report"></a>
+### Analyse Report
 
 Picture and resuls of the test
 
@@ -87,8 +93,8 @@ imagem dos tools usadosssssssssssss
 * GCP - Live Environment
 
 
-<a name="fro"></a>
-## Front End Design
+<a name="inte"></a>
+## Interface
 
 <a name="auth"></a>
 ## Author
