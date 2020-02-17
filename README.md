@@ -94,23 +94,18 @@ imagem dos tools usadosssssssssssss
 
 <a name="tech"></a>
 ### Technologies Used
+* [Trello](https://trello.com/b/VFRNnQYX/project-sfia) - Project MAnagemente
 * SQLlite - Database
-* Trello - Project Management
 * AAAAAAA - Deployment
 * Jenkins - CI Server
 * AAAAAA- Dependency Management
-* AAAAAA - Test Reporting
-* AAAAAA - Static Testing
+* AAAAAA - Test Reporting & Static Testing
 * [Git](https://github.com/PauloRibeiroIT/Paulo_SFIA1) - VCS
-* [Trello](https://trello.com/b/VFRNnQYX/project-sfia) - Project Tracking
 * GCP - Live Environment
-
 
 <a name="inte"></a>
 ## Interface
 pictureeeeeee front endddddddd
-
-
 
 <a name="demo"></a>
 ### Demo
