@@ -77,11 +77,11 @@ imagem dos tools usadosssssssssssss
 <a name="tech"></a>
 ### Technologies Used
 * SQLlite - Database
-* ##### - Deployment
+* AAAAAAA - Deployment
 * Jenkins - CI Server
-* #####- Dependency Management
-* ####### - Test Reporting
-* ##### - Static Testing
+* AAAAAA- Dependency Management
+* AAAAAA - Test Reporting
+* AAAAAA - Static Testing
 * [Git](https://github.com/PauloRibeiroIT/Paulo_SFIA1) - VCS
 * [Trello](https://trello.com/b/VFRNnQYX/project-sfia) - Project Tracking
 * GCP - Live Environment
