@@ -32,9 +32,6 @@ def __repr__(self):
         'Name: ', self.first_name, ' ', self.last_name
     ])
 
-
-
-
 #store
 
 class Products(db.Model, UserMixin):
