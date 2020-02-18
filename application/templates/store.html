@@ -1,25 +1,87 @@
+<html>
+  <body>
+    <h1>Store Page</h1>
+    <h2>Add Product</h2>
+    <form method="POST" action="/">
+        <input type="text" name="Product Name">
+        <input type="text" name="Product Vendor">
+        <input type="text" name="Product Description">
+        <input type="text" name="Product In Stock">
+        <input type="text" name="Product Price">
+        <input type="submit" value="Add">   
+    </form>
+   
+    <h1>Products</h1>
+    <table>
+    {% for productName in products %} 
+    <h2>Update Product</h2>
+    <form method="POST" action="./update">
+        <input type="text" name="Product Name">
+        <input type="text" name="Product Vendor">
+        <input type="text" name="Product Description">
+        <input type="text" name="Product In Stock">
+        <input type="text" name="Product Price">
+        <input type="submit" value="Update">
+    </form>
+
+     <h2>Delete Product</h2>
+     <form method="POST" action="./delete">
+        <input type="text" name="Product Name">
+        <input type="text" name="Product Vendor">
+        <input type="text" name="Product Description">
+        <input type="text" name="Product In Stock">
+        <input type="text" name="Product Price">
+        <input type="submit" value="Delete">
+    </form>
+      <p>{{product.productName}}</p>
+    {% endfor %}
+ </table>
+ </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% extends "layout.html" %}
 {% block body_content %}
-    <h1>StorePage</h1>
+    <h1>Store Page</h1>
     <p>Here you can add, update or delete products from the store stock.</p>
     <div class='form'>
         <form method='POST' action=''>
             {{ form.hidden_tag() }}
             <div class='form_group'>
-                {{ form.email.label }}
-                {{ form.email }}
-                {% if form.email.errors %}
-                    <div class='error'>
-                        {% for error in form.email.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
+                {{ form.productName.label }}
+                {{ form.productName }}
+                {{ form.productVendor.label }}
+                {{ form.productVendor }}
+                {{ form.productDescription.label }}
+                {{ form.productDescription }}
+                {{ form.productbuyPrice.label }}
+                {{ form.productbuyPrice }}
+                {{ form.productquantityInStock.label }}
+                {{ form.productquantityInStock }}
+              </div>
             <br>
             <div class='form_group'>
                 {{ form.submit }}
             </div>
         </form>
+            <form action="{{ url_for('product_delete') }}">
+            <button type="submit">Delete product</button>
+            </form>
     </div>
 {% endblock %}

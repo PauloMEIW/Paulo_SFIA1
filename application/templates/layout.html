@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
+ <head>
+    <title>Flask app</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
   <body>
     <header>
       <div class="container">
-        <h1 class="logo"><center>Flask APP - Paulo</center></h1>
+
       <strong><nav>
           <ul class="navbar">
             <a href="{{ url_for('home') }}">Home</a>
@@ -20,7 +24,6 @@
     </header>
     <div class="container">
       {% block body_content %}
-      
       {% endblock %}
     </div>
   </body>
