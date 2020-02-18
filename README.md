@@ -1,6 +1,6 @@
 # SFIA Project 1 - QA Consulting
 
-E-Commerce application
+E-Commerce application.
 
 ## Index
 [Brief](#brief)
@@ -34,7 +34,7 @@ E-Commerce application
 ## The Brief
 
 To create an OOP-based application with utilisation of supporting tools (Github, Jenkins, Linux ), methodologies ( Agile ) and technologies that encapsulate all core modules covered during QA Intensive training such HTML, Python and SQL ).
-Aplication posses the capacity to manipulate a database ( CRUD - create, read, Update and delete functionality )using front end interface created using Flask Python framework.
+Aplication posses the capacity to manipulate a database ( CRUD - create, read, Update and delete functionality ) using front end interface created using Flask Python framework.
 
 <a name="solution"></a>
 ### Solution
