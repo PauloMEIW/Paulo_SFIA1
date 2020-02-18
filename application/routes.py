@@ -77,9 +77,48 @@ def home():
 def about():
     return render_template('about.html', title='About')
 
-@app.route('/store')
+
+
+
+
+#store
+
+@app.route('/store', methods=['GET', 'POST'])
 def store():
+    if request.form:
+         product = productName(name=request.form.get("Name"))
+         db.session.add(product)
+         db.session.commit()
     return render_template('store.html', title='Store')
+
+
+@app.route("/update", methods=["POST"])
+def update():
+    newproduct = request.form.get("newproduct")
+    oldproduct = request.form.get("oldproduct")
+    product = producto.query.filter_by(productName=oldproduct).first()
+    product.productName = newproduct
+    db.session.commit()
+    return redirect("/")
+
+@app.route("/delete", methods=["POST"])
+def delete():
+    productName  = request.form.get("Name")
+    db.session.delete(book)
+    db.session.commit()
+    return redirect("/")
+
+
+
+
+
+
+#store
+
+
+
+
+
 
 @app.route('/account', methods=['GET', 'POST'])
 @login_required
@@ -107,3 +146,6 @@ def account_delete():
     db.session.delete(account)
     db.session.commit()
     return redirect(url_for('register'))
+
+
+
