@@ -39,7 +39,7 @@ Aplication posses the capacity to manipulate a database ( CRUD - create, read, U
 <a name="solution"></a>
 ### Solution
 
-I decided to create a e-commerce application that would allow the user to create and update won account and add, update or delete producs from the list.
+I decided to create an e-commerce application that would allow the user to create and update own account and add, update or delete products from the products table visualize on the Store page.
 
 
 <a name="setup"></a>
