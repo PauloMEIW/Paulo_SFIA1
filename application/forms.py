@@ -25,17 +25,14 @@ class LoginForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
-
     first_name = StringField('First Name',
         validators = [
-            DataRequired(),
-            Length(min=2, max=30)
+            DataRequired()
         ]
     )
     last_name = StringField('Last Name',
         validators = [
-            DataRequired(),
-            Length(min=2, max=30)
+            DataRequired()
         ]
     )
 
@@ -108,3 +105,31 @@ class UpdateAccountForm(FlaskForm):
             if user:
                 raise ValidationError('Email already in use')
 
+
+class storeForm(FlaskForm):
+    productName = StringField('Product Name',
+        validators=[
+            DataRequired(),
+            Length(min=4, max=30)
+        ])
+    productVendor = StringField('Product Vendor',
+        validators=[
+            DataRequired(),
+            Length(min=4, max=30)
+        ])
+    productDescription = StringField('Product Description',
+        validators=[
+            DataRequired(),
+            Length(min=4, max50)
+
+    quantityInStock = StringField('Quantity In Stock',
+        validators=[
+            DataRequired(),
+            Length(min=1, max4)
+
+    butPrice = StringField('Price',
+        validators=[
+            DataRequired(),
+            Length(min=1, max4)
+        ])
+    submit = SubmitField('Update')
