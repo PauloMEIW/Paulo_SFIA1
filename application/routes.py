@@ -84,6 +84,7 @@ def about():
 #store
 
 @app.route('/store', methods=['GET', 'POST'])
+@login_required
 def store():
     if request.form:
          product = productName(name=request.form.get("Name"))

@@ -13,7 +13,7 @@
    
     <h1>Products</h1>
     <table>
-    {% for productName in products %} 
+   {% for productName in products %} 
     <h2>Update Product</h2>
     <form method="POST" action="./update">
         <input type="text" name="Product Name">
@@ -33,7 +33,9 @@
         <input type="text" name="Product Price">
         <input type="submit" value="Delete">
     </form>
-      <p>{{product.productName}}</p>
+      <p>
+{{product.productName}}
+</p>
     {% endfor %}
  </table>
  </body>
