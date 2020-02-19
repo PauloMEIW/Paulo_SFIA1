@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, request
 from application import db, app, bcrypt
 from application.models import Posts, Users, Products
-from application.forms import PostForm, RegistrationForm, LoginForm, UpdateAccountForm
+from application.forms import PostForm, RegistrationForm, LoginForm, UpdateAccountForm, UpdateStoreForm
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -76,34 +76,47 @@ def about():
     return render_template('about.html', title='About')
 
 
-#STOR____________________________________________________________________
+#STORE____________________________________________________________________
 #add
 @app.route('/store', methods=['GET', 'POST'])
 @login_required
-def add_store():
-   product = producs(productname=request.form.get("product name"))
-   db.session.add(product)
-   db.session.commit()
-   return render_template("store.html")
-
+def store():
+   form = UpdateStoreForm()
+   if form.validate_on_submit():
+       productcode = Products(productcode=form.productcode.data)
+       productname = Products(productname=form.productname.data)
+       productdescription = Products(productdescription=form.productdescription.data)
+       price = Products(price=form.price.data)
+       db.session.add(productcode, productname, productvendor, productdescription, price)
+       db.session.commit()
+       return render_template("store.html", title='store', form=form)
 
 #update
-@app.route('/store/delete', methods=['GET', 'POST'])
+@app.route('/store/update', methods=['GET', 'POST'])
 @login_required
-def update_store():
-    newname = request.form.get("newname")
-    oldname = request.form.get("oldname")
-    products = products.query.filter_by(newname=oldname).first()
-    products.productname = newname
-    db.session.commit()
-    return render_template('store.html', title='store', form=form)
+def store_update():
+    form = UpdateStoreForm()
+    if form.validate_on_submit():
+        current_user.productname = form.productname.data
+        current_user.productvendor = form.productvendor.data
+        current_user.productdescription = form.productdescription.data
+        current_user.price = form.price.data
+        db.session.commit()
+        return redirect(url_for('store'))
+    elif request.method == 'GET':
+        form.productname.data = current_user.productname
+        form.productvendor.data = current_user.productvendor
+        form.productdescription.data = current_user.productdescription
+        form.price = current_user.price
+    return render_template('store.html', title='Store', form=form)
 
 #delete
-@app.route("/store/delete", methods=["GET", "POST"])
+@app.route('/store/delete', methods=["GET", "POST"])
 @login_required
 def store_delete():
+    form = product()
     product = request.form.get("productname")
-    product = product.query.filter_by(productname=productname).first()
+    product = products.query.filter_by(productcode=form).first()
     db.session.delete(product)
     db.session.commit()
     return render_template('store.html', title='store', form=form)
