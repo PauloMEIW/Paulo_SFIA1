@@ -47,11 +47,12 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
-#posts
+#posts_______________________________________
 @app.route('/post', methods=['GET', 'POST'])
 @login_required
 def post():
     form = PostForm()
+    posts = Posts.query.all()
     if form.validate_on_submit():
         postData = Posts(
             title = form.title.data,
@@ -60,11 +61,19 @@ def post():
  )
         db.session.add(postData)
         db.session.commit()
-
-        return redirect(url_for('home'))
+        return redirect(url_for('post'))
     else:
         print(form.errors)
-    return render_template('post.html', title='Post', form=form)
+    return render_template('post.html', title='Post', form=form, posts=posts)
+
+#delete review
+@app.route("/post/delete/<id>", methods=["GET"])
+@login_required
+def post_delete(id):
+    post = Posts.query.filter_by(id=id).first()
+    db.session.delete(post)
+    db.session.commit()
+    return redirect(url_for('post'))
 
 @app.route('/home')
 def home():

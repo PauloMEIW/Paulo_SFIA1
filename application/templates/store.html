@@ -1,7 +1,39 @@
 {% extends "layout.html" %}
 {% block body_content %}
-    <h1>Store Page</h1>
+<h1>Store Page</h1>
     <p>Here you can add, update or delete products from the store stock.</p>
+    <div class='form'>
+        <form method='POST' action=''>
+            {{ form.hidden_tag() }}
+            <div class='form_group'>
+                {{ form.productname.label }}
+                {{ form.productname }}
+                {{ form.productvendor.label }}
+                {{ form.productvendor }}
+                {{ form.productdescription.label }}
+                {{ form.productdescription }}
+                {{ form.price.label }}
+                {{ form.price }}
+            </div>
+            {% endif %}
+            </div>
+            <br>
+            <div class='form_group'>
+                {{ form.submit }}
+            </div>
+           </form>
+               <br>
+               <form method='POST' action="{{ url_for('store_delete') }}">
+               <button type="submit">Delete Product</button>
+               </form>
+      </div>
+{% endblock %}
+
+
+
+
+#___________________
+
     <form method="POST" action="/">
         <input type="text" name="Product Name">
         <input type="text" name="Product Vendor">
@@ -30,12 +62,7 @@
          <input type="submit" value="Delete_store">
      </form>
     {% endfor %}
-   </table> 
-
-
-
-
-
+   </table>
 
 
 

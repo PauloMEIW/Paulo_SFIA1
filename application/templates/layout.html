@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
- <head>
-    <title>Flask app</title>
+<center>
+    <tit
+<header>
+<title>FlaskY</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   </head>
   <body>
@@ -14,7 +16,7 @@
             {% if current_user.is_authenticated %}     
             <a href="{{ url_for('account')}}">Account</a>
 	    <a href="{{ url_for('store')}}">Store</a>
-	    <a href="{{ url_for('post')}}">Post</a>
+	    <a href="{{ url_for('post')}}">Review</a>
             <a href="{{ url_for('logout') }}">Logout</a>
             {% endif %}
             {% if not current_user.is_authenticated %}
@@ -30,4 +32,5 @@
       {% endblock %}
     </div>
   </body>
+</center>
 </html>
