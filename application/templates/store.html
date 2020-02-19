@@ -2,7 +2,58 @@
 {% block body_content %}
     <h1>Store Page</h1>
     <p>Here you can add, update or delete products from the store stock.</p>
-    <div class='form'>
+    <form method="POST" action="/">
+        <input type="text" name="Product Name">
+        <input type="text" name="Product Vendor">
+        <input type="text" name="Product Description">
+        <input type="integer" name="Product Price">
+        <input type="submit" value="Add">
+    </form>
+    <table>
+    {% for product in products %}
+      <p>{{products.productname}}</p>
+
+    <form method="POST" action="./store/update">
+        <input type="hidden" value="{{products.productname}}" name="oldname">
+        <input type="text" value="{{products.productname}}" name="newname">
+        <input type="hidden" value="{{products.productvendor}}" name="oldvendor">
+        <input type="text" value="{{products.productvendor}}" name="newvendor">        
+        <input type="hidden" value="{{products.description}}" name="olddescription">
+        <input type="text" value="{{products.productdescription}}" name="newdescription">
+        <input type="hidden" value="{{products.price}}" name="oldprice">
+        <input type="text" value="{{products.price}}" name="newprice"> 
+        <input type="submit" value="Update_store">
+     </form>
+    <td>
+     <form method="POST" action="./store/delete">
+         <input type="hidden" value="{{products.productname}}" name="product name" >
+         <input type="submit" value="Delete_store">
+     </form>
+    {% endfor %}
+   </table> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div class='form'>
         <form method='POST' action=''>
             {{ form.hidden_tag() }}
             <div class='form_group'>
@@ -12,11 +63,9 @@
                 {{ form.productVendor }}
                 {{ form.productDescription.label }}
                 {{ form.productDescription }}
-                {{ form.productbuyPrice.label }}
-                {{ form.productbuyPrice }}
-                {{ form.productquantityInStock.label }}
-                {{ form.productquantityInStock }}
-              </div>
+                {{ form.productprice.label }}
+                {{ form.productprice }}
+             </div>
             <br>
             <div class='form_group'>
                 {{ form.submit }}

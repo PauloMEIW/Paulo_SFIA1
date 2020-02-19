@@ -3,6 +3,7 @@
 <h1>Login Page</h1>
     <div class="form">
         <form method="POST" action=''>
+                  <div class='form_group'>
             {{ form.hidden_tag() }}
             {{ form.email.label }}
             {{ form.email }}
@@ -10,9 +11,9 @@
             {{ form.password.label }}
             {{ form.password }}
             <br>
-            {{ form.submit }}
- {{ form.remember.label }}
-{{ form.remember}}      
+                  {{ form.submit }}
+                  {{ form.remember.label }}
+                  {{ form.remember}}      
  </form>
     </div>
 

@@ -13,13 +13,11 @@ class LoginForm(FlaskForm):
             Email()
         ]
     )
-
     password = PasswordField('Password',
         validators=[
             DataRequired()
         ]
     )
-
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
@@ -35,7 +33,6 @@ class RegistrationForm(FlaskForm):
             DataRequired()
         ]
     )
-
     email = StringField('Email',
         validators = [
             DataRequired(),
@@ -61,10 +58,7 @@ class RegistrationForm(FlaskForm):
         if user:
             raise ValidationError('Email already in use')
 
-
 class PostForm(FlaskForm):
-
-
 
     title = StringField('Title',
         validators = [
@@ -105,7 +99,6 @@ class UpdateAccountForm(FlaskForm):
             if user:
                 raise ValidationError('Email already in use')
 
-
 class storeForm(FlaskForm):
     productName = StringField('Product Name',
         validators=[
@@ -120,16 +113,11 @@ class storeForm(FlaskForm):
     productDescription = StringField('Product Description',
         validators=[
             DataRequired(),
-            Length(min=4, max50)
-
-    quantityInStock = StringField('Quantity In Stock',
+            Length(min=4, max=50)
+       ])
+    price = StringField('Price',
         validators=[
             DataRequired(),
-            Length(min=1, max4)
-
-    butPrice = StringField('Price',
-        validators=[
-            DataRequired(),
-            Length(min=1, max4)
+            Length(min=1, max=4)
         ])
     submit = SubmitField('Update')

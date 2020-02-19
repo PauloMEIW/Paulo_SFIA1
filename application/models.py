@@ -23,7 +23,7 @@ class Users(db.Model, UserMixin):
     email = db.Column(db.String(150), nullable=False, unique=True)
     password = db.Column(db.String(500), nullable=False)
     posts = db.relationship('Posts', backref='author', lazy=True)
-    products = db.relationship('Products', backref='first_name', lazy=True)
+    products = db.relationship('Products', backref='users.id', lazy=True)
 
 def __repr__(self):
     return ''.join([
@@ -39,8 +39,7 @@ class Products(db.Model, UserMixin):
     productName = db.Column(db.String(30), nullable=False)
     productVendor = db.Column(db.String(30), nullable=False)
     productDescription= db.Column(db.String(150), nullable=False, unique=True)
-    quantityInStock = db.Column(db.String(6), nullable=False)
-    buyPrice = db.Column(db.Integer, nullable=False)
+    Price = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
 def __repr__(self):
@@ -49,11 +48,9 @@ def __repr__(self):
         'Name: ', self.productName, '\r\n',
         'Vendor: ', self.productVendor, '\r\n',
         'Description: ', self.productDescription, '\r\n',
-        'Quantity: ', self.quantityInStock, '\r\n',
         'Price: ', self.buyPrice, '\r\n',
 ])
 
-#store
 @login_manager.user_loader
 def load_user(id):
     return Users.query.get(int(id))

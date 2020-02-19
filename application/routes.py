@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for, request
 from application import db, app, bcrypt
-from application.models import Posts, Users
+from application.models import Posts, Users, Products
 from application.forms import PostForm, RegistrationForm, LoginForm, UpdateAccountForm
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -47,6 +47,7 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
+#posts
 @app.route('/post', methods=['GET', 'POST'])
 @login_required
 def post():
@@ -57,15 +58,12 @@ def post():
             content = form.content.data,
             author = current_user
  )
-
         db.session.add(postData)
         db.session.commit()
 
         return redirect(url_for('home'))
-
     else:
         print(form.errors)
-
     return render_template('post.html', title='Post', form=form)
 
 @app.route('/home')
@@ -76,12 +74,45 @@ def home():
 @app.route('/about')
 def about():
     return render_template('about.html', title='About')
-#STORE
-@app.route('/store')
-def store():
-   form=products.query.all()
-      return render_template('store.html', title='Store', form=form)
 
+
+#STOR____________________________________________________________________
+#add
+@app.route('/store', methods=['GET', 'POST'])
+@login_required
+def add_store():
+   product = producs(productname=request.form.get("product name"))
+   db.session.add(product)
+   db.session.commit()
+   return render_template("store.html")
+
+
+#update
+@app.route('/store/delete', methods=['GET', 'POST'])
+@login_required
+def update_store():
+    newname = request.form.get("newname")
+    oldname = request.form.get("oldname")
+    products = products.query.filter_by(newname=oldname).first()
+    products.productname = newname
+    db.session.commit()
+    return render_template('store.html', title='store', form=form)
+
+#delete
+@app.route("/store/delete", methods=["GET", "POST"])
+@login_required
+def store_delete():
+    product = request.form.get("productname")
+    product = product.query.filter_by(productname=productname).first()
+    db.session.delete(product)
+    db.session.commit()
+    return render_template('store.html', title='store', form=form)
+
+
+#ACCOUNT ___________________________________________________________
+
+
+#update
 @app.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
@@ -98,8 +129,8 @@ def account():
         form.email.data = current_user.email
     return render_template('account.html', title='Account', form=form)
 
-
-@app.route("/delete", methods=["GET", "POST"])
+#delete account
+@app.route("/account/delete", methods=["GET", "POST"])
 @login_required
 def account_delete():
     user = current_user.id
