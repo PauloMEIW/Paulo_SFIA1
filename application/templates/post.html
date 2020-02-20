@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
   {% block body_content %}
   <h1>Review Page</h1>
-    <p>Happy with our service and products? Write a review!</p>
+    <p><h3>Happy with our service and products?</h3></p>
+    <p><h3> Write a review!</h3></p>
      <div class='form'>
         <form method='POST' action=''>
             {{ form.hidden_tag() }}
@@ -24,9 +25,8 @@
     <!-- for every post in the posts list -->
     {% for post in posts %}
         <!-- display properties from the post -->
-        <p>Author: {{ post.first_name }}</p>
-        <p>Title: {{ post.title }}</p>
-        <p>Content: {{ post.content }}</p>
+        <p>Positive/Negative: {{ post.title }}</p>
+        <p>Comment: {{ post.content }}</p>
         <form method='DELETE' action="{{ url_for('post_delete', id=post.id) }}">
            <button type="submit">Delete Post</button>
         </form>        
