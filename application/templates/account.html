@@ -1,11 +1,17 @@
 {% extends "layout.html" %}
 {% block body_content %}
-    <h1>Account Page</h1>
-    <p>Here you can update your account</p>
+ <h1>Account Page</h1>
+    <p>Here you can update your account:</p>
     <div class='form'>
         <form method='POST' action=''>
             {{ form.hidden_tag() }}
             <div class='form_group'>
+                {{ form.first_name.label }}
+                {{ form.first_name }}
+             
+                {{ form.last_name.label }}
+                {{ form.last_name }}
+            
                 {{ form.email.label }}
                 {{ form.email }}
                 {% if form.email.errors %}
@@ -20,7 +26,11 @@
             <div class='form_group'>
                 {{ form.submit }}
             </div>
-        </form>
-    </div>
+           </form>
+               <br>
+               <form method='POST' action="{{ url_for('account_delete') }}">
+               <button type="submit">Delete your account</button>
+               </form>      
+      </div>
 {% endblock %}
 

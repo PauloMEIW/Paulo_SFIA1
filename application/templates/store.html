@@ -1,7 +1,105 @@
 {% extends "layout.html" %}
 {% block body_content %}
 <h1>Store Page</h1>
-   
-
+    <p>Here you can add, update or delete products from the store stock.</p>
+    <div class='form'>
+        <form method='POST' action=''>
+            {{ form.hidden_tag() }}
+            <div class='form_group'>
+                {{ form.productname.label }}
+                {{ form.productname }}
+                {{ form.productvendor.label }}
+                {{ form.productvendor }}
+                {{ form.productdescription.label }}
+                {{ form.productdescription }}
+                {{ form.price.label }}
+                {{ form.price }}
+            </div>
+            {% endif %}
+            </div>
+            <br>
+            <div class='form_group'>
+                {{ form.submit }}
+            </div>
+           </form>
+               <br>
+               <form method='POST' action="{{ url_for('store_delete') }}">
+               <button type="submit">Delete Product</button>
+               </form>
+      </div>
 {% endblock %}
 
+
+
+
+#___________________
+
+    <form method="POST" action="/">
+        <input type="text" name="Product Name">
+        <input type="text" name="Product Vendor">
+        <input type="text" name="Product Description">
+        <input type="integer" name="Product Price">
+        <input type="submit" value="Add">
+    </form>
+    <table>
+    {% for product in products %}
+      <p>{{products.productname}}</p>
+
+    <form method="POST" action="./store/update">
+        <input type="hidden" value="{{products.productname}}" name="oldname">
+        <input type="text" value="{{products.productname}}" name="newname">
+        <input type="hidden" value="{{products.productvendor}}" name="oldvendor">
+        <input type="text" value="{{products.productvendor}}" name="newvendor">        
+        <input type="hidden" value="{{products.description}}" name="olddescription">
+        <input type="text" value="{{products.productdescription}}" name="newdescription">
+        <input type="hidden" value="{{products.price}}" name="oldprice">
+        <input type="text" value="{{products.price}}" name="newprice"> 
+        <input type="submit" value="Update_store">
+     </form>
+    <td>
+     <form method="POST" action="./store/delete">
+         <input type="hidden" value="{{products.productname}}" name="product name" >
+         <input type="submit" value="Delete_store">
+     </form>
+    {% endfor %}
+   </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <div class='form'>
+        <form method='POST' action=''>
+            {{ form.hidden_tag() }}
+            <div class='form_group'>
+                {{ form.productName.label }}
+                {{ form.productName }}
+                {{ form.productVendor.label }}
+                {{ form.productVendor }}
+                {{ form.productDescription.label }}
+                {{ form.productDescription }}
+                {{ form.productprice.label }}
+                {{ form.productprice }}
+             </div>
+            <br>
+            <div class='form_group'>
+                {{ form.submit }}
+            </div>
+        </form>
+            <form action="{{ url_for('product_delete') }}">
+            <button type="submit">Delete product</button>
+            </form>
+    </div>
+{% endblock %}

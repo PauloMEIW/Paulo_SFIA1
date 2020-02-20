@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
-{% block body_content %}
-<h1>Post Page</h1>
-    <div class="form">
-        <form method="POST" action=''>
+  {% block body_content %}
+  <h1>Review Page</h1>
+    <p>Happy with our service and products? Write a review!</p>
+     <div class='form'>
+        <form method='POST' action=''>
             {{ form.hidden_tag() }}
             {{ form.first_name.label }}
             {{ form.first_name }}
@@ -11,61 +12,30 @@
             {{ form.last_name }}
             <br>
             {{ form.title.label }}
-            {{ form.title }}
+            {{ form.title }}           
             <br>
             {{ form.content.label }}
             {{ form.content }}
-            <br><br>
+            <br>
             {{ form.submit }}
         </form>
     </div>
-
-    <div class="form-group">
-<br><!-- first_name.label is the text displayed on the screen next to the text box --> 
-    {{ form.first_name.label }}
-    <!-- first_name is the input field, a text box in this case --> 
-    {{ form.first_name }}
-    <!-- if the form has any errors -->
-    {% if form.first_name.errors %}
-    <br><!-- surround the displayed errors in a error div tag, this can then be styled later to be red etc. -->
-        <div class="error">
-        <!-- for each error in the errors for the first_name input field -->
-            {% for error in form.first_name.errors %}
-                <!-- display the error -->             
-            <span>{{ error }}</span>
-            <!-- end the for-loop -->
-            {% endfor %}
-<br>
-<br>
-{{ form.last_name.label }}
-{{ form.last_name }}
-{% if form.last_name.errors %}
-<div class="error">
-{% for error in form.last_name.errors %}
-<span>{{ error }}</span>
-{% endfor %}
-<br>
-<br>
-{{ form.title.label }}
-{{ form.title }}
-{% if form.title.errors %}
-<div class="error">
-{% for error in form.title.errors %}
-<span>{{ error }}</span>
-{% endfor %}
-<br>
-<br>
-{{ form.content.label }}
-{{ form.content }}
-{% if form.content.errors %}
-<div class="error">
-{% for error in form.content.errors %}
-<span>{{ error }}</span>
-{% endfor %}
-       </div>
-    <!-- end the if statement --> 
-   {% endif %}
-{% endif %}
-{% endif %}
+{% if posts %}
+    <!-- for every post in the posts list -->
+    {% for post in posts %}
+        <!-- display properties from the post -->
+        <p>Author: {{ post.first_name }}</p>
+        <p>Title: {{ post.title }}</p>
+        <p>Content: {{ post.content }}</p>
+        <form method='DELETE' action="{{ url_for('post_delete', id=post.id) }}">
+           <button type="submit">Delete Post</button>
+        </form>        
+ <!-- end the for-loop -->
+    {% endfor %}
+<!-- otherwise... -->
+{% else %}
+    <!-- display a message indicating that there are no posts --> 
+    <p>There are no post</p>
+<!-- end the 'if' statement -->
 {% endif %}
 {% endblock %}

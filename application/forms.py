@@ -13,32 +13,26 @@ class LoginForm(FlaskForm):
             Email()
         ]
     )
-
     password = PasswordField('Password',
         validators=[
             DataRequired()
         ]
     )
-
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
 
 class RegistrationForm(FlaskForm):
-
     first_name = StringField('First Name',
         validators = [
-            DataRequired(),
-            Length(min=2, max=30)
+            DataRequired()
         ]
     )
     last_name = StringField('Last Name',
         validators = [
-            DataRequired(),
-            Length(min=2, max=30)
+            DataRequired()
         ]
     )
-
     email = StringField('Email',
         validators = [
             DataRequired(),
@@ -64,11 +58,17 @@ class RegistrationForm(FlaskForm):
         if user:
             raise ValidationError('Email already in use')
 
-
 class PostForm(FlaskForm):
-
-
-
+    first_name = StringField('First Name',
+        validators = [
+            DataRequired()
+        ]
+    )
+    last_name = StringField('Last Name',
+        validators = [
+            DataRequired()
+        ]
+    )
     title = StringField('Title',
         validators = [
             DataRequired(),
@@ -107,3 +107,51 @@ class UpdateAccountForm(FlaskForm):
             user = Users.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('Email already in use')
+
+class storeForm(FlaskForm):
+    productName = StringField('Product Name',
+        validators=[
+            DataRequired(),
+            Length(min=4, max=30)
+        ])
+    productVendor = StringField('Product Vendor',
+        validators=[
+            DataRequired(),
+            Length(min=4, max=30)
+        ])
+    productDescription = StringField('Product Description',
+        validators=[
+            DataRequired(),
+            Length(min=4, max=50)
+       ])
+    price = StringField('Price',
+        validators=[
+            DataRequired(),
+            Length(min=1, max=4)
+        ])
+    submit = SubmitField('Update')
+
+
+
+class UpdateStoreForm(FlaskForm):
+    productname = StringField('Product Name',
+        validators=[
+            DataRequired(),
+            Length(min=4, max=30)
+        ])
+    productvendor = StringField('Product Vendor',
+        validators=[
+            DataRequired(),
+            Length(min=4, max=30)
+        ])
+    productdescription = StringField('Product Description',
+        validators=[
+            DataRequired(),
+            Length(min=4, max=30)
+        ])
+    price = StringField('Product Price',
+        validators=[
+            DataRequired(),
+            Length(min=4, max=30)
+        ])
+    submit = SubmitField('Update')
