@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
-<header>
-</header>
-
+<head>
+<center>
 <title>FlaskY</title>
 <!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
- --> 
-<body><center>
-<div class="container">
+ -->
+ </head>
+  <body>
+    <header>
+      <div class="container">
       <strong><nav>
           <ul class="navbar">
             <a href="{{ url_for('home') }}">Home</a>         
@@ -25,7 +26,7 @@
           </ul>
         </nav></strong>
       </div>
-
+    </header>
     <div class="container">
       {% block body_content %}
       {% endblock %}
