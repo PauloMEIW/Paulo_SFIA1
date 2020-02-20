@@ -80,6 +80,7 @@ pip install -r requirements.txt
 
 <a name="use"></a>
 ### Use Diagram
+[![use-case.png](https://www.imageupload.net/upload-image/2020/02/20/use-case.png)](https://www.imageupload.net/image/Rumcx)
 
 <a name="cla"></a>
 ### Class Diagram
