@@ -10,6 +10,7 @@ E-Commerce application.
 [Project Management](#pro)
 
 ![Requirements](https://ibb.co/4gtxV8v)
+![alt tag](https://ibb.co/4gtxV8v "Description goes here")
 ![User Stories](https://ibb.co/znPjJyh)
 ![Tasks by week](https://ibb.co/f8CgxFD)
 
