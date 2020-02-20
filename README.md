@@ -65,11 +65,7 @@ pip install -r requirements.txt
 <a name="pro"></a>
 ## Project Management
 
-[!trello.png(https://www.imageupload.net/upload-image/2020/02/20/trello.png)]   markut picture¬!!!!
-
-![Requirements](req)
-![User Stories](user)
-![Tasks by week](tas)
+[![trello.png](https://www.imageupload.net/upload-image/2020/02/20/trello.png)](https://www.imageupload.net/image/RIK6c)
 
 <a name="ris"></a>
 ## Risk Assessment
