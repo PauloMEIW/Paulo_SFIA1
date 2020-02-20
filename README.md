@@ -62,17 +62,13 @@ pip install -r requirements.txt
 ```
 
 
-
+<a name="pro"></a>
+## Project Management
 
 
 <a name="ris"></a>
 ## Risk Assessment
 
-
-<a name="pro"></a>
-## Project Management
-
-trelloooooooooooooo
 
 <a name="arch"></a>
 ## Architecture
