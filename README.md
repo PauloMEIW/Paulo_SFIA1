@@ -9,6 +9,11 @@ E-Commerce application.
 
 [Project Management](#pro)
 
+![Requirements](https://ibb.co/4gtxV8v)
+![User Stories](https://ibb.co/znPjJyh)
+![Tasks by week](https://ibb.co/f8CgxFD)
+
+
 [Risk Assessment](#ris)
 
 [Architecture](#arch)
