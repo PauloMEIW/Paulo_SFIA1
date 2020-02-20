@@ -13,7 +13,7 @@
             {{ form.last_name }}
             <br>
             {{ form.title.label }}
-            {{ form.title }}           
+            {{ form.title }}
             <br>
             {{ form.content.label }}
             {{ form.content }}
@@ -21,21 +21,15 @@
             {{ form.submit }}
         </form>
     </div>
-{% if posts %}
-    <!-- for every post in the posts list -->
-    {% for post in posts %}
-        <!-- display properties from the post -->
-        <p>Positive/Negative: {{ post.title }}</p>
-        <p>Comment: {{ post.content }}</p>
-        <form method='DELETE' action="{{ url_for('post_delete', id=post.id) }}">
-           <button type="submit">Delete Post</button>
-        </form>        
- <!-- end the for-loop -->
-    {% endfor %}
-<!-- otherwise... -->
+{% if reviews %}
+    {% for review in reviews %}
+        <p>Title: {{ review.title }}</p>
+        <p>Comment: {{ review.content }}</p>
+        <form method='DELETE' action="{{ url_for('review_delete', id=review.id) }}">
+           <button type="submit">Delete Review</button>
+        </form>
+     {% endfor %}
 {% else %}
-    <!-- display a message indicating that there are no posts --> 
-    <p>There are no post</p>
-<!-- end the 'if' statement -->
+    <p>There are no review!</p>
 {% endif %}
 {% endblock %}

@@ -58,27 +58,21 @@ class RegistrationForm(FlaskForm):
         if user:
             raise ValidationError('Email already in use')
 
-class PostForm(FlaskForm):
+class ReviewForm(FlaskForm):
     first_name = StringField('First Name',
         validators = [
-            DataRequired()
         ]
     )
     last_name = StringField('Last Name',
         validators = [
-            DataRequired()
-        ]
+           ]
     )
     title = StringField('Title',
         validators = [
-            DataRequired(),
-            Length(min=2, max=100)
         ]
     )
     content = StringField('Content',
         validators = [
-            DataRequired(),
-            Length(min=2, max=1000)
         ]
     )
     submit = SubmitField('Post!')

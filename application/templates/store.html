@@ -7,60 +7,53 @@
 
  <div class='form'>
         <form method='POST' action=''>
-            {{ form.hidden_tag() }}
-            <div class='form_group'>
                 {{ form.productname.label }}
                 {{ form.productname }}
+                <br>
                 {{ form.productvendor.label }}
                 {{ form.productvendor }}
+                <br>
                 {{ form.productdescription.label }}
                 {{ form.productdescription }}
+                <br>
                 {{ form.price.label }}
                 {{ form.price }}
-                <br> 
+              <p> <br> 
+            <div class='form_group'>
                 {{ form.submit }}
-             </div>              
+            </div>               
         </form> 
     </div>
 
-<h3>Delete Productt:</h3>
-
-
-            {% if products %}
-    <!-- for every post in the posts list -->
-    {% for product in prodcuts %}
-        <!-- display properties from the post -->
+ <h3>Delete Product:</h3>
+ {% if products %}
+ {% for product in products %}
+ <div class='form'>
         <p>Product Name: {{ product.productname }}</p>
         <p>Product Vendor: {{ product.productvendor }}</p>
         <p>Product Description: {{ product.productdescription }}</p>
          <p>Price: {{ product.price }}</p>
-        <form method='DELETE' action="{{ url_for('store_delete') id=product.id) }}">
+        <form method='DELETE' action="{{ url_for('store_delete')}}">
            <button type="submit">Delete Product</button>
         </form>
- <!-- end the for-loop -->
+</div>
     {% endfor %}   
-<!-- otherwise... -->
 {% else %}
-    <!-- display a message indicating that there are no posts -->
     <p>There are no Producs in the list</p>
-<!-- end the 'if' statement -->
 {% endif %}
-{% endblock %}
-
-<!-- #update____________________-- -->
 
 <h3>Update Product:</h3>
-
   <div class='form'>
         <form method='POST' action=''>
-            {{ form.hidden_tag() }}
-            <div class='form_group'>
-               {{ form.productname.label }}
+                {{ form.productname.label }}
                 {{ form.productname }}
+                <br>
                 {{ form.productvendor.label }}
                 {{ form.productvendor }}
+                <br>
                 {{ form.productdescription.label }}
                 {{ form.productdescription }}
+                <br>
                 {{ form.price.label }}
                 {{ form.price }}
            </div>
@@ -68,3 +61,4 @@
             <div class='form_group'>
                 {{ form.submit }}
             </div>
+{% endblock %}

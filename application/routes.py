@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, request
 from application import db, app, bcrypt
-from application.models import Posts, Users, Products
-from application.forms import PostForm, RegistrationForm, LoginForm, UpdateAccountForm, UpdateStoreForm
+from application.models import Reviews, Users, Products
+from application.forms import ReviewForm, RegistrationForm, LoginForm, UpdateAccountForm, UpdateStoreForm
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -47,38 +47,38 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
-#posts_______________________________________
-@app.route('/post', methods=['GET', 'POST'])
+#reviews_______________________________________
+@app.route('/review', methods=['GET', 'POST'])
 @login_required
-def post():
-    form = PostForm()
-    posts = Posts.query.all()
+def review():
+    form = ReviewForm()
+    reviews = Reviews.query.all()
     if form.validate_on_submit():
-        postData = Posts(
+        reviewData = Reviews(
             title = form.title.data,
             content = form.content.data,
             author = current_user
  )
-        db.session.add(postData)
+        db.session.add(reviewData)
         db.session.commit()
-        return redirect(url_for('post'))
+        return redirect(url_for('review'))
     else:
         print(form.errors)
-    return render_template('post.html', title='Post', form=form, posts=posts)
+    return render_template('review.html', title='Review', form=form, reviews=reviews)
 
 #delete review
-@app.route("/post/delete/<id>", methods=["GET"])
+@app.route("/review/delete/<id>", methods=["GET"])
 @login_required
-def post_delete(id):
-    post = Posts.query.filter_by(id=id).first()
-    db.session.delete(post)
+def review_delete(id):
+    review = Reviews.query.filter_by(id=id).first()
+    db.session.delete(review)
     db.session.commit()
-    return redirect(url_for('post'))
+    return redirect(url_for('review'))
 
 @app.route('/home')
 def home():
-    postdata=Posts.query.all()
-    return render_template('home.html', title='Home', form=postdata)
+    reviewdata=Reviews.query.all()
+    return render_template('home.html', title='Home', form=reviewdata)
 
 @app.route('/about')
 def about():
@@ -98,7 +98,8 @@ def store():
        price = Products(price=form.price.data)
        db.session.add(productcode, productname, productvendor, productdescription, price)
        db.session.commit()
-       return render_template("store.html", title='store', form=form)
+   return render_template("store.html", title='store', form=form)
+
 
 #update
 @app.route('/store/update', methods=['GET', 'POST'])
@@ -132,7 +133,6 @@ def store_delete():
 
 
 #ACCOUNT ___________________________________________________________
-
 
 #update
 @app.route('/account', methods=['GET', 'POST'])
