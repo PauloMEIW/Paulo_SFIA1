@@ -6,11 +6,11 @@ E-Commerce application.
 [Brief](#brief)
    * [Solution](#solution)
    * [Setup](#setup)
-   
-[Risk Assessment](#ris)
 
 [Project Management](#pro)
-   
+
+[Risk Assessment](#ris)
+
 [Architecture](#arch)
    * [Entity Relationship Diagrams](#erd)
    * [Use Diagram](#use)
