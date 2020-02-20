@@ -35,15 +35,15 @@ To create an OOP-based application with utilisation of supporting tools (Github,
 Aplication posses the capacity to manipulate a database ( CRUD - create, read, Update and delete functionality ) using front end interface created using Flask Python framework.
 
 This project involve concepts from all core training modules, as such:
-●	Agile 
-●	Python Fundamentals
-●	Python Testing
-●	Git
-●	Basic Linux
-●	Python Web Development
-●	Continuous Integration
-●	Cloud Fundamentals
-●	Databases
+* Agile 
+* Python Fundamentals
+* Python Testing
+* Git
+* Basic Linux
+* Python Web Development
+* Continuous Integration
+* Cloud Fundamentals
+* Databases
 
 <a name="solution"></a>
 ### Solution
