@@ -84,7 +84,7 @@ pip install -r requirements.txt
 
 <a name="cla"></a>
 ### Class Diagram
-
+[![project.class.diagram.png](https://www.imageupload.net/upload-image/2020/02/20/project.class.diagram.png)](https://www.imageupload.net/image/RyFkQ)
 
 <a name="testing"></a>
 ## Testing
