@@ -35,23 +35,22 @@ def __repr__(self):
 #store
 
 class Products(db.Model, UserMixin):
-    productCode = db.Column(db.Integer, primary_key=True)
-    productName = db.Column(db.String(30), nullable=False)
-    productVendor = db.Column(db.String(30), nullable=False)
-    productDescription= db.Column(db.String(150), nullable=False, unique=True)
-    Price = db.Column(db.Integer, nullable=False)
+    productcode = db.Column(db.Integer, primary_key=True)
+    productname = db.Column(db.String(30), nullable=False)
+    productvendor = db.Column(db.String(30), nullable=False)
+    productdescription= db.Column(db.String(150), nullable=False, unique=True)
+    price = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
 def __repr__(self):
     return ''.join([
-        'Product Code: ', str(self.productCode), '\r\n',
-        'Name: ', self.productName, '\r\n',
-        'Vendor: ', self.productVendor, '\r\n',
-        'Description: ', self.productDescription, '\r\n',
-        'Price: ', self.buyPrice, '\r\n',
+        'Product Code: ', str(self.productcode), '\r\n',
+        'Name: ', self.productname, '\r\n',
+        'Vendor: ', self.productvendor, '\r\n',
+        'Description: ', self.productdescription, '\r\n',
+        'Price: ', self.buyprice, '\r\n',
 ])
 
 @login_manager.user_loader
 def load_user(id):
     return Users.query.get(int(id))
-
