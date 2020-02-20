@@ -9,7 +9,6 @@ E-Commerce application.
    
 [Risk Assessment](#ris)
 
-
 [Project Management](#pro)
    
 [Architecture](#arch)
@@ -29,18 +28,27 @@ E-Commerce application.
 [Author](#auth)
 
 
-
 <a name="brief"></a>
 ## The Brief
 
 To create an OOP-based application with utilisation of supporting tools (Github, Jenkins, Linux ), methodologies ( Agile ) and technologies that encapsulate all core modules covered during QA Intensive training such HTML, Python and SQL ).
 Aplication posses the capacity to manipulate a database ( CRUD - create, read, Update and delete functionality ) using front end interface created using Flask Python framework.
 
+This project involve concepts from all core training modules, as such:
+●	Agile 
+●	Python Fundamentals
+●	Python Testing
+●	Git
+●	Basic Linux
+●	Python Web Development
+●	Continuous Integration
+●	Cloud Fundamentals
+●	Databases
+
 <a name="solution"></a>
 ### Solution
 
 I decided to create an e-commerce application that would allow the user to create and update own account and add, update or delete products from the products table visualize on the Store page.
-
 
 <a name="setup"></a>
 ### Setup
@@ -52,6 +60,11 @@ source venv/bin/activate
 # make sure our dependencies are installed
 pip install -r requirements.txt
 ```
+
+
+
+
+
 <a name="ris"></a>
 ## Risk Assessment
 
