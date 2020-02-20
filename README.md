@@ -10,6 +10,10 @@ E-Commerce application.
 [Project Management](#pro)
 
 ![Requirements](https://ibb.co/4gtxV8v)
+<p align="center">
+  <img src="https://ibb.co/4gtxV8v" width="350" title="hover text">
+  <img src="your_relative_path_here_number_2_large_name" width="350" alt="accessibility text">
+</p>
 ![User Stories](https://ibb.co/znPjJyh)
 ![Tasks by week](https://ibb.co/f8CgxFD)
 
