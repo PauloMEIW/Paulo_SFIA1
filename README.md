@@ -108,10 +108,10 @@ This application can be deployed both locally and externally through a virtual m
 ### Technologies Used
 * [Trello](https://trello.com/b/VFRNnQYX/project-sfia) - Project Management
 * SQLlite - Database
-* AAAAAAA - Deployment
+* Docker - Deployment
 * Jenkins - CI Server
-* AAAAAA- Dependency Management
-* AAAAAA - Test Reporting & Static Testing
+* Maven - Dependency Management
+* pytest - Test Reporting & Static Testing
 * [Git](https://github.com/PauloRibeiroIT/Paulo_SFIA1) - VCS
 * GCP - Live Environment
 
