@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html>
-<center>
 <header>
+</header>
+
 <title>FlaskY</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <body>
-    <header>
-     <div class="container">
-   <img src="https://i.ibb.co/5jx5pNk/flask.png" height=" 100" width="100" style="float:left";>
-	 </a> 
-<div    <nav>
-       <ul class="menu top nav">
-           <li><a href="{{ url_for('home')}}">Home</a></li>
-           <li><a href="{{ url_for('about')}}">About</a></li>
-            {% if current_user.is_authenticated %}
-           <li><a href="{{ url_for('account')}}">Account</a></li>
-           <li><a href="{{ url_for('store')}}">Store</a></li>
-           <li><a href="{{ url_for('post')}}">Review</a></li>
-           <li><a href="{{ url_for('logout')}}">Logout</a></li>
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+ --> 
+<body><center>
+<div class="container">
+      <strong><nav>
+          <ul class="navbar">
+            <a href="{{ url_for('home') }}">Home</a>         
+            <a href="{{ url_for('about')}}">About</a>     
+            {% if current_user.is_authenticated %}     
+            <a href="{{ url_for('account')}}">Account</a>
+	    <a href="{{ url_for('store')}}">Store</a>
+	    <a href="{{ url_for('post')}}">Review</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
             {% endif %}
             {% if not current_user.is_authenticated %}
-           <li><a href="{{ url_for('login')}}">Login</a></li>
-           <li><a href="#!{{ url_for('register')}}">Register</a></li>
-            {% endif %}
-    </ul></nav>
-    </div>
-    </header>
+	    <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register')}}">Register</a>
+            {% endif %}  
+          </ul>
+        </nav></strong>
+      </div>
+
     <div class="container">
       {% block body_content %}
       {% endblock %}
     </div>
-<br>
-<br>
-<br>
-<div class="footer">
-	 <p> Copyright &copy; www.FlaskY.com.uk </p>
-	 </div>
   </body>
 </center>
 </html>
