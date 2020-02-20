@@ -48,7 +48,7 @@ This project involve concepts from all core training modules, as such:
 <a name="solution"></a>
 ### Solution
 
-I decided to create an e-commerce application that would allow the user to create and update own account and add, update or delete products from the products table visualize on the Store page.
+I decided to create an e-commerce application that would allow the user to create and update own account, add and delete review of the store or product and also add, read and delete product from the products table acessing to the Store page.
 
 <a name="setup"></a>
 ### Setup
