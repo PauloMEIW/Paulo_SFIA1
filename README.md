@@ -65,6 +65,8 @@ pip install -r requirements.txt
 <a name="pro"></a>
 ## Project Management
 
+https://www.imageupload.net/image/RIK6c
+![https://www.imageupload.net/image/RIK6c]
 ![Requirements](req)
 ![User Stories](user)
 ![Tasks by week](tas)
