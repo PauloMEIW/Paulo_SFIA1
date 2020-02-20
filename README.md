@@ -100,8 +100,9 @@ Picture and resuls of the test
 ## Deployment
 The build, test and deployment process was automated using Jenkins, with a webhook to GitHub which was triggered with every push event
 
-This application can be deployed both locally and externally through a virtual machine. The constants.js file has commented out options to switch from an external to local IP address.   edittttttttttttttttttttttttttt
-imagem dos tools usadosssssssssssss
+This application can be deployed both locally and externally through a virtual machine. The constants.js file has commented out options to switch from an external to local IP address.
+
+[![CI_pipeline.jpg](https://www.imageupload.net/upload-image/2020/02/20/CI_pipeline.jpg)](https://www.imageupload.net/image/Ru0uc)
 
 <a name="tech"></a>
 ### Technologies Used
