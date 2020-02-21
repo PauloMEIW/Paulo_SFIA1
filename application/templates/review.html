@@ -1,33 +1,45 @@
 {% extends "layout.html" %}
   {% block body_content %}
+<head>
+<style>
+         table, th, td {
+            border: 1px solid black;
+         }
+      </style>
+</head>
+
   <h1>Review Page</h1>
     <p><h3>Happy with our service and products?</h3></p>
     <p><h3> Write a review!</h3></p>
-     <div class='form'>
+    <tr>
+ <div class='form'>
         <form method='POST' action=''>
-            {{ form.hidden_tag() }}
-            {{ form.first_name.label }}
-            {{ form.first_name }}
+         <table>  <th> {{ form.hidden_tag() }}
+            {{ form.first_name.label }}</th>
+           <td> {{ form.first_name }}</td>
             <br>
-            {{ form.last_name.label }}
-            {{ form.last_name }}
+           <th> {{ form.last_name.label }}</th>
+           <td> {{ form.last_name }}</td>
             <br>
-            {{ form.title.label }}
-            {{ form.title }}
+           <th> {{ form.title.label }}</th>
+           <td> {{ form.title }}</td>
             <br>
-            {{ form.content.label }}
-            {{ form.content }}
+           <th> {{ form.content.label }}</th>
+           <td> {{ form.content }}</td>
             <br>
-            {{ form.submit }}
-        </form>
-    </div>
+          </table> <p> {{ form.submit }}
+   </form>
+ </div>
+</tr>
+
 {% if reviews %}
     {% for review in reviews %}
-        <p>Title: {{ review.title }}</p>
-        <p>Comment: {{ review.content }}</p>
+      <table> <p>Title: {{ review.title }}</p>
+       <p>Comment: {{ review.content }}</p>
         <form method='DELETE' action="{{ url_for('review_delete', id=review.id) }}">
            <button type="submit">Delete Review</button>
         </form>
+</table>
      {% endfor %}
 {% else %}
     <p>There are no review!</p>

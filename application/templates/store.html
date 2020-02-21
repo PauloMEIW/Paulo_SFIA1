@@ -1,64 +1,50 @@
 {% extends "layout.html" %}
 {% block body_content %}
+<head>
+<style>
+         table, th, td {
+            border: 1px solid black;
+         }
+      </style>
+</head>
 <h1>Store Page</h1>
-    <p>Here you can add, update or delete products from the store stock.</p>
-   
-<h3>Add Product:</h3>
+<h2> <p>Here you can add, update or delete products from the store stock.</p></h2>
+  
+<h3>Product Management:</h3>
 
- <div class='form'>
+<div class='form'>
         <form method='POST' action=''>
+		{{ form.hidden_tag() }}
                 {{ form.productname.label }}
                 {{ form.productname }}
-                <br>
+                <p>
                 {{ form.productvendor.label }}
                 {{ form.productvendor }}
-                <br>
+                <p>
                 {{ form.productdescription.label }}
                 {{ form.productdescription }}
-                <br>
+                <p>
                 {{ form.price.label }}
                 {{ form.price }}
               <p> <br> 
-            <div class='form_group'>
-                {{ form.submit }}
-            </div>               
-        </form> 
-    </div>
-
- <h3>Delete Product:</h3>
+               <button type="submit">Add Product</button>
+      </form>            
+</div>
+<p>
  {% if products %}
- {% for product in products %}
- <div class='form'>
-        <p>Product Name: {{ product.productname }}</p>
+    {% for product in products %}
+<!--  product = request.form.get("Product Name") -->       
+<table><th> <p>Product Name: {{ product.productname }}</p>
         <p>Product Vendor: {{ product.productvendor }}</p>
         <p>Product Description: {{ product.productdescription }}</p>
-         <p>Price: {{ product.price }}</p>
-        <form method='DELETE' action="{{ url_for('store_delete')}}">
-           <button type="submit">Delete Product</button>
-        </form>
+         <p>Price: {{ product.price }}</p></th></table>
+        <form method='DELETE' action="{{ url_for('store_delete', id=productcode)}}">
+        <button type="submit">Delete Product</button>
+        </form></p>
 </div>
-    {% endfor %}   
-{% else %}
-    <p>There are no Producs in the list</p>
-{% endif %}
-
-<h3>Update Product:</h3>
-  <div class='form'>
-        <form method='POST' action=''>
-                {{ form.productname.label }}
-                {{ form.productname }}
-                <br>
-                {{ form.productvendor.label }}
-                {{ form.productvendor }}
-                <br>
-                {{ form.productdescription.label }}
-                {{ form.productdescription }}
-                <br>
-                {{ form.price.label }}
-                {{ form.price }}
-           </div>
-            <br>
-            <div class='form_group'>
-                {{ form.submit }}
-            </div>
+  {% endfor %}   
+ {% else %}
+<p>There are no products </p>
+ {% endif %}
 {% endblock %}
+

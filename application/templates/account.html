@@ -8,10 +8,10 @@
             <div class='form_group'>
                 {{ form.first_name.label }}
                 {{ form.first_name }}
-             
+             <p>
                 {{ form.last_name.label }}
                 {{ form.last_name }}
-            
+            <p>
                 {{ form.email.label }}
                 {{ form.email }}
                 {% if form.email.errors %}
@@ -32,5 +32,24 @@
                <button type="submit">Delete your account</button>
                </form>      
       </div>
+<p>
+
+--------------------------------------------------------------------------------
+
+<p>
+<h3>My favourites products:</h3>
+
+{% if favou %}
+    {% for favouid in favou %}
+        <p>Product Name: {{ products.productname }}</p>
+        <form method='DELETE' action="{{ url_for('favou_delete', id=favou.id) }}">
+           <button type="submit">Delete Favourite</button>
+        </form>
+     {% endfor %}
+{% else %}
+    <p>There are no favourites!</p>
+{% endif %}
+
+
 {% endblock %}
 

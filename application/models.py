@@ -23,7 +23,6 @@ class Users(db.Model, UserMixin):
     email = db.Column(db.String(150), nullable=False, unique=True)
     password = db.Column(db.String(500), nullable=False)
     reviews = db.relationship('Reviews', backref='author', lazy=True)
-    products = db.relationship('Products', backref='users.id', lazy=True)
 
 def __repr__(self):
     return ''.join([
@@ -40,7 +39,6 @@ class Products(db.Model, UserMixin):
     productvendor = db.Column(db.String(30), nullable=False)
     productdescription= db.Column(db.String(150), nullable=False, unique=True)
     price = db.Column(db.Integer, nullable=False)
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'),  nullable=False)
 
 
 def __repr__(self):
@@ -55,3 +53,19 @@ def __repr__(self):
 @login_manager.user_loader
 def load_user(id):
     return Users.query.get(int(id))
+
+
+
+#favourite
+
+class Favou(db.Model):
+    favou = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    productcode = db.Column(db.Integer, db.ForeignKey('products.productcode'), nullable=False)
+
+def __repr__(self):
+    return''.join([
+       'Favourite:',str(self.id), '\r\n',
+       'Id user:',self.id, '\r\n',
+       'Product Name',self.productname,'\r\n',
+])

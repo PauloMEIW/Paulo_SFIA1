@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for, request
 from application import db, app, bcrypt
-from application.models import Reviews, Users, Products
+from application.models import Favou, Reviews, Users, Products
 from application.forms import ReviewForm, RegistrationForm, LoginForm, UpdateAccountForm, UpdateStoreForm
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -47,6 +47,20 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
+#favourites____add________________
+
+@app.route('/favou/<id>/<productcode>', methods=["GET"])
+@login_required
+def favou_add(id,productcode):
+    product = products.query.filter_by(productcode=productcode).first()
+    user = users.query.filter_by(id=id).first()
+    if user and product():
+     favou(user=user,product=product)
+     db.session.delete(favouid)
+     db.session.commit()
+    return redirect(url_for('account'))
+
+
 #reviews_______________________________________
 @app.route('/review', methods=['GET', 'POST'])
 @login_required
@@ -91,14 +105,22 @@ def about():
 @login_required
 def store():
    form = UpdateStoreForm()
+   products = Products.query.all()
    if form.validate_on_submit():
-       productcode = Products(productcode=form.productcode.data)
-       productname = Products(productname=form.productname.data)
-       productdescription = Products(productdescription=form.productdescription.data)
-       price = Products(price=form.price.data)
-       db.session.add(productcode, productname, productvendor, productdescription, price)
+       # this is a primary, don't need to assign it
+       # productcode = Products(productcode=form.productcode.data)
+       product = Products(
+           productname=form.productname.data,
+           productdescription=form.productdescription.data,
+           price=form.price.data,
+           productvendor=form.productvendor.data
+       )
+       db.session.add(product)
        db.session.commit()
-   return render_template("store.html", title='store', form=form)
+       return redirect(url_for('store'))
+   else:
+       print(form.errors)
+   return render_template('store.html', title='store', form=form, products=products)
 
 
 #update
@@ -118,15 +140,15 @@ def store_update():
         form.productvendor.data = current_user.productvendor
         form.productdescription.data = current_user.productdescription
         form.price = current_user.price
-    return render_template('store.html', title='Store', form=form)
+    return render_template('store.html', title='store', form=form)
 
 #delete
-@app.route('/store/delete', methods=["GET", "POST"])
+@app.route('/store/delete>', methods=["GET", "POST"])
 @login_required
 def store_delete():
     form = product()
-    product = request.form.get("productname")
-    product = products.query.filter_by(productcode=form).first()
+    product = request.form.get('productname')
+    product = Products.query.filter_by(productname=form).first()
     db.session.delete(product)
     db.session.commit()
     return render_template('store.html', title='store', form=form)
