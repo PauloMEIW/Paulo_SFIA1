@@ -51,32 +51,27 @@ def register():
 #add
 
 
-@app.route('/favou/<id>/<productcode>', methods=["GET"])
+@app.route('/favou/add/<productcode>', methods=["POST"])
 @login_required
-def favou_add(id,productcode):
-    product = products.query.filter_by(productcode=productcode).first()
-    user = users.query.filter_by(id=id).first()
-    if user and product():
-     favou(user=user,product=product)
-     db.session.add(favouid)
-     db.session.commit()
-    return redirect(url_for('account'))
+def favou_add(productcode):
+   product = Products.query.filter_by(productcode=productcode).first()
+   if product:
+      favou=Favou(id=current_user.id,productcode=product.productcode) 
+      db.session.add(favou)
+      db.session.commit()
+   return redirect(url_for('account'))
 
 #delete
 
-@app.route('/favou/<id>/<productcode>', methods=["GET"])
+@app.route('/favou/<productcode>', methods=["POST"])
 @login_required
-def favou_delete(id,productcode):
-    product = products.query.filter_by(productcode=productcode).first()
-    user = users.query.filter_by(id=id).first()
-    if user and product():
-     favou(user=user,product=product)
-     db.session.delete(favouid)
-     db.session.commit()
+def favou_delete(productcode):
+    product =Products.query.filter_by(productcode=productcode).first()
+    if product:
+      favou=Favou.query.filter_by(productcode=product.productcode,id=current_user.id).first()
+      db.session.delete(favou)
+      db.session.commit()
     return redirect(url_for('account'))
-
-
-
 
 #reviews_____________________________________________________________
 @app.route('/review', methods=['GET', 'POST'])
@@ -176,6 +171,11 @@ def store_delete():
 @login_required
 def account():
     form = UpdateAccountForm()
+    favou = Favou.query.filter_by(id=current_user.id).all()
+    products=[]
+    for favourite in favou:
+        product=Products.query.filter_by(productcode=favourite.productcode).first()
+        products.append(product)
     if form.validate_on_submit():
         current_user.first_name = form.first_name.data
         current_user.last_name = form.last_name.data
@@ -186,7 +186,7 @@ def account():
         form.first_name.data = current_user.first_name
         form.last_name.data = current_user.last_name
         form.email.data = current_user.email
-    return render_template('account.html', title='Account', form=form)
+    return render_template('account.html', title='Account', form=form, products=products)
 
 #delete account
 @app.route("/account/delete", methods=["GET", "POST"])

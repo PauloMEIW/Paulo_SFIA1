@@ -4,8 +4,6 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from application.models import Users
 from flask_login import current_user
 
-
-
 class LoginForm(FlaskForm):
     email = StringField('Email',
         validators=[
@@ -20,7 +18,6 @@ class LoginForm(FlaskForm):
     )
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
-
 
 class RegistrationForm(FlaskForm):
     first_name = StringField('First Name',
@@ -124,7 +121,6 @@ class storeForm(FlaskForm):
             Length(min=1, max=4)
         ])
     submit = SubmitField('Update')
-
 
 
 class UpdateStoreForm(FlaskForm):

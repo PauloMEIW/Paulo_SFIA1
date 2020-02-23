@@ -36,15 +36,16 @@
 <p>
     {% if products %}
     {% for product in products %}
- <!--  product = request.form.get('Product Name') -->        
-<Table><th> <p>Product Name: {{ product.productname }}</p>
-        <p>Product Vendor: {{ product.productvendor }}</p>
-        <p>Product Description: {{ product.productdescription }}</p>
-         <p>Price: {{ product.price }}</p></th></table>
-
-        <form method='favou' action="{{ url_for('favou_add', id=product.id)}}">
+    product = request.form.get('Product Name')        
+<Table>
+<th><p>Product Name: {{ product.productname }}</p>
+    <p>Product Vendor: {{ product.productvendor }}</p>
+    <p>Product Description: {{ product.productdescription }}</p>
+    <p>Price: {{ product.price }}</p></th>
+</table>
+        <form method='POST' action="{{ url_for('favou_add', id=product.id, productcode=product.productcode)}}">
         <button type="submit">Add Product as a favourite</button>
-        </form> 
+        </form>
        <form method='DELETE' action="{{ url_for('store_delete', id=product.id)}}">
         <button type="submit">Delete Product</button>
         </form>

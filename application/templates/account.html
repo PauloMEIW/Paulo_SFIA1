@@ -39,17 +39,15 @@
 <p>
 <h3>My favourites products:</h3>
 
-{% if favou %}
-    {% for favouid in favou %}
-        <p>Product Name: {{ products.productname }}</p>
-        <form method='DELETE' action="{{ url_for('favou_delete', id=favou.id) }}">
+{% if products %}
+    {% for product in products %}
+        <p>Product Name: {{ product.productname }}</p>
+        <form method='POST' action="{{ url_for('favou_delete', productcode=product.productcode) }}">
            <button type="submit">Delete Favourite</button>
         </form>
      {% endfor %}
 {% else %}
     <p>There are no favourites!</p>
 {% endif %}
-
-
 {% endblock %}
 
