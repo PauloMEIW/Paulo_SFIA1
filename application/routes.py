@@ -47,7 +47,9 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
-#favourites____add________________
+#favourites__________________________________________
+#add
+
 
 @app.route('/favou/<id>/<productcode>', methods=["GET"])
 @login_required
@@ -56,12 +58,11 @@ def favou_add(id,productcode):
     user = users.query.filter_by(id=id).first()
     if user and product():
      favou(user=user,product=product)
-     db.session.delete(favouid)
+     db.session.add(favouid)
      db.session.commit()
     return redirect(url_for('account'))
 
-
-#favourites delete_____________
+#delete
 
 @app.route('/favou/<id>/<productcode>', methods=["GET"])
 @login_required
@@ -77,7 +78,7 @@ def favou_delete(id,productcode):
 
 
 
-#reviews_______________________________________
+#reviews_____________________________________________________________
 @app.route('/review', methods=['GET', 'POST'])
 @login_required
 def review():
