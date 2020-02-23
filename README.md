@@ -84,9 +84,7 @@ pip install -r requirements.txt
 
 <a name="cla"></a>
 ### Class Diagram
-[![project.class.diagram.png](https://www.imageupload.net/upload-image/2020/02/20/project.class.diagram.png)](https://www.imageupload.net/image/RyFkQ)
-
-<a href="https://ibb.co/2MtwCvX"><img src="https://i.ibb.co/R601s3L/project-class.png" alt="project-class" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>post pics</a><br />
+<a href="https://ibb.co/2MtwCvX"><img src="https://i.ibb.co/R601s3L/project-class.png" alt="project-class" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a>
 
 <a name="testing"></a>
 ## Testing
