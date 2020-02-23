@@ -8,6 +8,9 @@
       </style>
 </head>
 <h1>Store Page</h1>
+<div>
+<img src="https://i.ibb.co/tZTkrcH/download.png" alt="download" border="0" /></a>
+</div>
 <h2> <p>Here you can add, update or delete products from the store stock.</p></h2>
   
 <h3>Product Management:</h3>
@@ -31,20 +34,22 @@
       </form>            
 </div>
 <p>
- {% if products %}
+    {% if products %}
     {% for product in products %}
-<!--  product = request.form.get("Product Name") -->       
-<table><th> <p>Product Name: {{ product.productname }}</p>
+ <!--  product = request.form.get('Product Name') -->        
+<Table><th> <p>Product Name: {{ product.productname }}</p>
         <p>Product Vendor: {{ product.productvendor }}</p>
         <p>Product Description: {{ product.productdescription }}</p>
          <p>Price: {{ product.price }}</p></th></table>
-        <form method='DELETE' action="{{ url_for('store_delete', id=productcode)}}">
-        <button type="submit">Delete Product</button>
-        </form></p>
-</div>
-  {% endfor %}   
- {% else %}
-<p>There are no products </p>
- {% endif %}
-{% endblock %}
 
+        <form method='favou' action="{{ url_for('favou_add', id=product.id)}}">
+        <button type="submit">Add Product as a favourite</button>
+        </form> 
+       <form method='DELETE' action="{{ url_for('store_delete', id=product.id)}}">
+        <button type="submit">Delete Product</button>
+        </form>
+   {% endfor %}   
+   {% else %}
+       <p>There are no products </p>
+   {% endif %}
+{% endblock %}

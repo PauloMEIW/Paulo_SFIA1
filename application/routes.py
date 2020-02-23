@@ -61,6 +61,22 @@ def favou_add(id,productcode):
     return redirect(url_for('account'))
 
 
+#favourites delete_____________
+
+@app.route('/favou/<id>/<productcode>', methods=["GET"])
+@login_required
+def favou_delete(id,productcode):
+    product = products.query.filter_by(productcode=productcode).first()
+    user = users.query.filter_by(id=id).first()
+    if user and product():
+     favou(user=user,product=product)
+     db.session.delete(favouid)
+     db.session.commit()
+    return redirect(url_for('account'))
+
+
+
+
 #reviews_______________________________________
 @app.route('/review', methods=['GET', 'POST'])
 @login_required
@@ -107,8 +123,6 @@ def store():
    form = UpdateStoreForm()
    products = Products.query.all()
    if form.validate_on_submit():
-       # this is a primary, don't need to assign it
-       # productcode = Products(productcode=form.productcode.data)
        product = Products(
            productname=form.productname.data,
            productdescription=form.productdescription.data,
@@ -124,7 +138,7 @@ def store():
 
 
 #update
-@app.route('/store/update', methods=['GET', 'POST'])
+@app.route('/store', methods=['GET', 'POST'])
 @login_required
 def store_update():
     form = UpdateStoreForm()
@@ -143,7 +157,7 @@ def store_update():
     return render_template('store.html', title='store', form=form)
 
 #delete
-@app.route('/store/delete>', methods=["GET", "POST"])
+@app.route('/store', methods=["GET", "POST"])
 @login_required
 def store_delete():
     form = product()
