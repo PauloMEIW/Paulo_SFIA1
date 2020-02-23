@@ -77,7 +77,7 @@ pip install -r requirements.txt
 <a name="erd"></a>
 ### Entity Relationship Diagrams
 Initial Plan and Delivered Solution ( in blue ):
-<a href="https://ibb.co/kmSS7Nw"><img src="https://i.ibb.co/g4RR2kf/erd.png" alt="erd" border="0"></a><br />
+<a href="https://ibb.co/kmSS7Nw"><img src="https://i.ibb.co/g4RR2kf/erd.png" alt="erd" border="0"></a>
 
 <a name="use"></a>
 ### Use Diagram
@@ -85,7 +85,7 @@ Initial Plan and Delivered Solution ( in blue ):
 
 <a name="cla"></a>
 ### Class Diagram
-<a href="https://ibb.co/cDT8JPR"><img src="https://i.ibb.co/72ypvHB/sdsadsads.png" alt="sdsadsads" border="0"></a><br />
+<a href="https://ibb.co/yktFTmY"><img src="https://i.ibb.co/2Mx320s/68747470733a2f2f692e6962622e636f2f373279707648422f7364736164736164732e706e67.png" alt="68747470733a2f2f692e6962622e636f2f373279707648422f7364736164736164732e706e67" border="0"></a>
 
 ## Testing
 ????????????????   tests have been used for automated testing, and SonarLint/SonarQube for static reporting and refactoring.
