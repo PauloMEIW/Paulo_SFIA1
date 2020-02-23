@@ -85,9 +85,8 @@ Initial Plan and Delivered Solution ( in blue ):
 
 <a name="cla"></a>
 ### Class Diagram
-<a href="https://ibb.co/cDT8JPR"><img src="https://i.ibb.co/72ypvHB/sdsadsads.png" alt="sdsadsads" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>post pics</a><br />
+<a href="https://ibb.co/cDT8JPR"><img src="https://i.ibb.co/72ypvHB/sdsadsads.png" alt="sdsadsads" border="0"></a><br />
 
-<a name="testing"></a>
 ## Testing
 ????????????????   tests have been used for automated testing, and SonarLint/SonarQube for static reporting and refactoring.
 
