@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+  {% block body_content %}
+<head>
+<style>
+         table, th, td {
+            border: 1px solid black;
+         }
+      </style>
+</head>
+
+  <h1>Review Page</h1>
+    <p><h3>Happy with our service and products?</h3></p>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/yqJjFvH/review.jpg" alt="review" border="0"></a>
+    <tr>
+ <div class='form'>
+        <form method='POST' action=''>
+         <table>  <th> {{ form.hidden_tag() }}
+            {{ form.first_name.label }}</th>
+           <td> {{ form.first_name }}</td>
+            <br>
+           <th> {{ form.last_name.label }}</th>
+           <td> {{ form.last_name }}</td>
+            <br>
+           <th> {{ form.title.label }}</th>
+           <td> {{ form.title }}</td>
+            <br>
+           <th> {{ form.content.label }}</th>
+           <td> {{ form.content }}</td>
+            <br>
+          </table> <p> {{ form.submit }}
+   </form>
+ </div>
+</tr>
+
+{% if reviews %}
+    {% for review in reviews %}
+      <table> <p>Title: {{ review.title }}</p>
+       <p>Comment: {{ review.content }}</p>
+        <form method='DELETE' action="{{ url_for('review_delete', id=review.id) }}">
+           <button type="submit">Delete Review</button>
+        </form>
+</table>
+     {% endfor %}
+{% else %}
+    <p>There are no review!</p>
+{% endif %}
+{% endblock %}

@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, request
 from application import db, app, bcrypt
-from application.models import Posts, Users, Products
-from application.forms import PostForm, RegistrationForm, LoginForm, UpdateAccountForm, UpdateStoreForm
+from application.models import Favou, Reviews, Users, Products
+from application.forms import ReviewForm, RegistrationForm, LoginForm, UpdateAccountForm, UpdateStoreForm
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -47,38 +47,64 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
-#posts_______________________________________
-@app.route('/post', methods=['GET', 'POST'])
+#favourites__________________________________________
+#add
+
+
+@app.route('/favou/add/<productcode>', methods=["POST"])
 @login_required
-def post():
-    form = PostForm()
-    posts = Posts.query.all()
+def favou_add(productcode):
+   product = Products.query.filter_by(productcode=productcode).first()
+   if product:
+      favou=Favou(id=current_user.id,productcode=product.productcode) 
+      db.session.add(favou)
+      db.session.commit()
+   return redirect(url_for('account'))
+
+#delete
+
+@app.route('/favou/<productcode>', methods=["POST"])
+@login_required
+def favou_delete(productcode):
+    product =Products.query.filter_by(productcode=productcode).first()
+    if product:
+      favou=Favou.query.filter_by(productcode=product.productcode,id=current_user.id).first()
+      db.session.delete(favou)
+      db.session.commit()
+    return redirect(url_for('account'))
+
+#reviews_____________________________________________________________
+@app.route('/review', methods=['GET', 'POST'])
+@login_required
+def review():
+    form = ReviewForm()
+    reviews = Reviews.query.all()
     if form.validate_on_submit():
-        postData = Posts(
+        reviewData = Reviews(
             title = form.title.data,
             content = form.content.data,
             author = current_user
  )
-        db.session.add(postData)
+        db.session.add(reviewData)
         db.session.commit()
-        return redirect(url_for('post'))
+        return redirect(url_for('review'))
     else:
         print(form.errors)
-    return render_template('post.html', title='Post', form=form, posts=posts)
+    return render_template('review.html', title='Review', form=form, reviews=reviews)
 
 #delete review
-@app.route("/post/delete/<id>", methods=["GET"])
+@app.route("/review/delete/<id>", methods=["GET"])
 @login_required
-def post_delete(id):
-    post = Posts.query.filter_by(id=id).first()
-    db.session.delete(post)
+def review_delete(id):
+    review = Reviews.query.filter_by(id=id).first()
+    db.session.delete(review)
     db.session.commit()
-    return redirect(url_for('post'))
+    return redirect(url_for('review'))
 
 @app.route('/home')
 def home():
-    postdata=Posts.query.all()
-    return render_template('home.html', title='Home', form=postdata)
+    reviewdata=Reviews.query.all()
+    return render_template('home.html', title='Home', form=reviewdata)
 
 @app.route('/about')
 def about():
@@ -91,17 +117,24 @@ def about():
 @login_required
 def store():
    form = UpdateStoreForm()
+   products = Products.query.all()
    if form.validate_on_submit():
-       productcode = Products(productcode=form.productcode.data)
-       productname = Products(productname=form.productname.data)
-       productdescription = Products(productdescription=form.productdescription.data)
-       price = Products(price=form.price.data)
-       db.session.add(productcode, productname, productvendor, productdescription, price)
+       product = Products(
+           productname=form.productname.data,
+           productdescription=form.productdescription.data,
+           price=form.price.data,
+           productvendor=form.productvendor.data
+       )
+       db.session.add(product)
        db.session.commit()
-       return render_template("store.html", title='store', form=form)
+       return redirect(url_for('store'))
+   else:
+       print(form.errors)
+   return render_template('store.html', title='store', form=form, products=products)
+
 
 #update
-@app.route('/store/update', methods=['GET', 'POST'])
+@app.route('/store', methods=['GET', 'POST'])
 @login_required
 def store_update():
     form = UpdateStoreForm()
@@ -117,15 +150,15 @@ def store_update():
         form.productvendor.data = current_user.productvendor
         form.productdescription.data = current_user.productdescription
         form.price = current_user.price
-    return render_template('store.html', title='Store', form=form)
+    return render_template('store.html', title='store', form=form)
 
 #delete
-@app.route('/store/delete', methods=["GET", "POST"])
+@app.route('/store', methods=["GET", "POST"])
 @login_required
 def store_delete():
     form = product()
-    product = request.form.get("productname")
-    product = products.query.filter_by(productcode=form).first()
+    product = request.form.get('productname')
+    product = Products.query.filter_by(productname=form).first()
     db.session.delete(product)
     db.session.commit()
     return render_template('store.html', title='store', form=form)
@@ -133,12 +166,16 @@ def store_delete():
 
 #ACCOUNT ___________________________________________________________
 
-
 #update
 @app.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
     form = UpdateAccountForm()
+    favou = Favou.query.filter_by(id=current_user.id).all()
+    products=[]
+    for favourite in favou:
+        product=Products.query.filter_by(productcode=favourite.productcode).first()
+        products.append(product)
     if form.validate_on_submit():
         current_user.first_name = form.first_name.data
         current_user.last_name = form.last_name.data
@@ -149,7 +186,7 @@ def account():
         form.first_name.data = current_user.first_name
         form.last_name.data = current_user.last_name
         form.email.data = current_user.email
-    return render_template('account.html', title='Account', form=form)
+    return render_template('account.html', title='Account', form=form, products=products)
 
 #delete account
 @app.route("/account/delete", methods=["GET", "POST"])

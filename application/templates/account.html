@@ -1,17 +1,17 @@
 {% extends "layout.html" %}
 {% block body_content %}
- <h1>Account Page</h1>
-    <p>Here you can update your account:</p>
+ <h1>Account Administration</h1>
+    <h3>Here you can update your account:</h3>
     <div class='form'>
         <form method='POST' action=''>
             {{ form.hidden_tag() }}
             <div class='form_group'>
                 {{ form.first_name.label }}
                 {{ form.first_name }}
-             
+             <p>
                 {{ form.last_name.label }}
                 {{ form.last_name }}
-            
+            <p>
                 {{ form.email.label }}
                 {{ form.email }}
                 {% if form.email.errors %}
@@ -32,5 +32,22 @@
                <button type="submit">Delete your account</button>
                </form>      
       </div>
+<p>
+
+--------------------------------------------------------------------------------
+
+<p>
+<h3>My favourites products:</h3>
+
+{% if products %}
+    {% for product in products %}
+        <p>Product Name: {{ product.productname }}</p>
+        <form method='POST' action="{{ url_for('favou_delete', productcode=product.productcode) }}">
+           <button type="submit">Delete Favourite</button>
+        </form>
+     {% endfor %}
+{% else %}
+    <p>There are no favourites!</p>
+{% endif %}
 {% endblock %}
 
