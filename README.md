@@ -102,7 +102,7 @@ The build, test and deployment process was automated using Jenkins, with a webho
 
 This application can be deployed both locally and externally through a virtual machine. The constants.js file has commented out options to switch from an external to local IP address.
 
-[![CI_pipeline.jpg](https://www.imageupload.net/upload-image/2020/02/20/CI_pipeline.jpg)](https://www.imageupload.net/image/Ru0uc)
+<a href="https://ibb.co/ct6t0xF"><img src="https://i.ibb.co/d6P6F72/68747470733a2f2f7777772e696d61676575706c6f61642e6e65742f75706c6f61642d696d6167652f323032302f30322f32302f43495f706970656c696e652e6a7067.jpg" alt="68747470733a2f2f7777772e696d61676575706c6f61642e6e65742f75706c6f61642d696d6167652f323032302f30322f32302f43495f706970656c696e652e6a7067" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>post pics</a><br />
 
 <a name="tech"></a>
 ### Technologies Used
