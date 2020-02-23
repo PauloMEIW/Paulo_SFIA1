@@ -76,14 +76,8 @@ pip install -r requirements.txt
 
 <a name="erd"></a>
 ### Entity Relationship Diagrams
-Initial Plan:
-
-
-
-Delivered Solution:
-
-
-
+Initial Plan and Delivered Solution ( in blue ):
+<a href="https://ibb.co/kmSS7Nw"><img src="https://i.ibb.co/g4RR2kf/erd.png" alt="erd" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>post pics</a><br />
 
 <a name="use"></a>
 ### Use Diagram
