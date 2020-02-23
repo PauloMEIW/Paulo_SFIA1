@@ -91,7 +91,7 @@ Delivered Solution:
 
 <a name="cla"></a>
 ### Class Diagram
-<a href="https://ibb.co/2MtwCvX"><img src="https://i.ibb.co/R601s3L/project-class.png" alt="project-class" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a>
+<a href="https://ibb.co/61nRn8P"><img src="https://i.ibb.co/xfCSCYj/project-class.png" alt="project-class" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>post pics</a><br />
 
 <a name="testing"></a>
 ## Testing
