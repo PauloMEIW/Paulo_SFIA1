@@ -117,7 +117,7 @@ This application can be deployed both locally and externally through a virtual m
 
 <a name="demo"></a>
 ### Demo
-Demo accessible in the url below:
+Demo accessible in the url below: http://35.223.133.178:5000/home
 
 
 <a name="auth"></a>
