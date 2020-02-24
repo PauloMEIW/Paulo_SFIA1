@@ -89,7 +89,7 @@ Initial Plan and Delivered Solution ( in blue ):
 <a href="https://ibb.co/yktFTmY"><img src="https://i.ibb.co/2Mx320s/68747470733a2f2f692e6962622e636f2f373279707648422f7364736164736164732e706e67.png" alt="68747470733a2f2f692e6962622e636f2f373279707648422f7364736164736164732e706e67" border="0"></a>
 
 ## Testing
-????????????????   tests have been used for automated testing, and SonarLint/SonarQube for static reporting and refactoring.
+<a href="https://ibb.co/hWrFFcs"><img src="https://i.ibb.co/T8JMM1c/results.png" alt="results" border="0"></a><br /><a target='_blank' href='https://freeonlinedice.com/'>dice 2</a><br />
 
 <a name="report"></a>
 ### Analyse Report
@@ -100,8 +100,7 @@ Picture and resuls of the test
 <a name="dep"></a>
 ## Deployment
 The build, test and deployment process was automated using Jenkins, with a webhook to GitHub which was triggered with every push event
-
-This application can be deployed both locally and externally through a virtual machine. The constants.js file has commented out options to switch from an external to local IP address.
+This application can be deployed both locally and externally through a virtual machine. 
 
 <a href="https://ibb.co/ct6t0xF"><img src="https://i.ibb.co/d6P6F72/68747470733a2f2f7777772e696d61676575706c6f61642e6e65742f75706c6f61642d696d6167652f323032302f30322f32302f43495f706970656c696e652e6a7067.jpg" alt="68747470733a2f2f7777772e696d61676575706c6f61642e6e65742f75706c6f61642d696d6167652f323032302f30322f32302f43495f706970656c696e652e6a7067" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
 
