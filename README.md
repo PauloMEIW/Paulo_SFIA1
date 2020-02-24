@@ -108,7 +108,7 @@ This application can be deployed both locally and externally through a virtual m
 <a name="tech"></a>
 ### Technologies Used
 * [Trello](https://trello.com/b/VFRNnQYX/project-sfia) - Project Management
-* SQLlite - Database
+* MySQL - Database
 * Python - Flask Framework
 * Jenkins - CI Server
 * pytest - Test Reporting & Static Testing
