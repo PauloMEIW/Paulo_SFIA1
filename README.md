@@ -14,7 +14,7 @@ E-Commerce application.
 
 [Architecture](#arch)
    * [Entity Relationship Diagrams](#erd)
-   * [Use Diagram](#use)
+   * [Use Case Diagram](#use)
    * [Class Diagram](#cla)
 	
 [Testing](#testing)
@@ -81,7 +81,7 @@ Initial Plan and Delivered Solution ( in blue ):
 <a href="https://ibb.co/kmSS7Nw"><img src="https://i.ibb.co/g4RR2kf/erd.png" alt="erd" border="0"></a>
 
 <a name="use"></a>
-### Use Diagram
+### Use Case Diagram
 [![use-case26853d33381d65c4.png](https://www.imageupload.net/upload-image/2020/02/20/use-case26853d33381d65c4.png)](https://www.imageupload.net/image/RucKy)
 
 <a name="cla"></a>
