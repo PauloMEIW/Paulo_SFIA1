@@ -104,7 +104,7 @@ lllllllllllllllllllllllll
 The build, test and deployment process was automated using Jenkins, with a webhook to GitHub which was triggered with every push event
 This application can be deployed both locally and externally through a virtual machine. 
 
-<a href="https://ibb.co/SRYZT3L"><img src="https://i.ibb.co/TmjNXgC/asasasas.png" alt="asasasas" border="0"></a>
+https://camo.githubusercontent.com/ff4024d4334326f848eb13ec6c75043286c299b4/68747470733a2f2f692e6962622e636f2f643650364637322f36383734373437303733336132663266373737373737326536393664363136373635373537303663366636313634326536653635373432663735373036633666363136343264363936643631363736353266333233303332333032663330333232663332333032663433343935663730363937303635366336393665363532653661373036372e6a7067
 
 <a name="tech"></a>
 ### Technologies Used
