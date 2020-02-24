@@ -96,10 +96,8 @@ lllllllllllllllllllllllll
 <a name="report"></a>
 ### Analyse Report
 
-<a href="https://ibb.co/pj2hdfG"><img src="https://i.ibb.co/YB20hcY/results.png" alt="results" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>how to upload photos to internet</a><br />
+<a href="https://ibb.co/pj2hdfG"><img src="https://i.ibb.co/YB20hcY/results.png" alt="results" border="0"></a><br />
 
-
-<a name="dep"></a>
 ## Deployment
 The build, test and deployment process was automated using Jenkins, with a webhook to GitHub which was triggered with every push event
 This application can be deployed both locally and externally through a virtual machine. 
