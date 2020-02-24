@@ -111,7 +111,7 @@ This application can be deployed both locally and externally through a virtual m
 * Docker - Deployment
 * Jenkins - CI Server
 * pytest - Test Reporting & Static Testing
-* [Git](https://github.com/PauloRibeiroIT/Paulo_SFIA1) - VCS
+* [Git](https://github.com/PauloRibeiroIT/Paulo_SFIA1) - Version Control System
 * GCP - Live Environment
 
 <a name="inte"></a>
