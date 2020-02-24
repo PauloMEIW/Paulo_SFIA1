@@ -110,7 +110,6 @@ This application can be deployed both locally and externally through a virtual m
 * SQLlite - Database
 * Docker - Deployment
 * Jenkins - CI Server
-* Maven - Dependency Management
 * pytest - Test Reporting & Static Testing
 * [Git](https://github.com/PauloRibeiroIT/Paulo_SFIA1) - VCS
 * GCP - Live Environment
