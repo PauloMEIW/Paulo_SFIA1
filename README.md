@@ -106,7 +106,7 @@ This application can be deployed both locally and externally through a virtual m
 ### Technologies Used
 * [Trello](https://trello.com/b/VFRNnQYX/project-sfia) - Project Management
 * SQLlite - Database
-* Docker - Deployment
+* Python - Flask Framework
 * Jenkins - CI Server
 * pytest - Test Reporting & Static Testing
 * [Git](https://github.com/PauloRibeiroIT/Paulo_SFIA1) - Version Control System
@@ -119,7 +119,6 @@ This application can be deployed both locally and externally through a virtual m
 <a name="demo"></a>
 ### Demo
 Demo accessible in the url below: http://35.223.133.178:5000/home
-
 
 <a name="auth"></a>
 ## Author
