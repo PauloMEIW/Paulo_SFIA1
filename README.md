@@ -66,7 +66,7 @@ pip install -r requirements.txt
 <a name="pro"></a>
 ## Project Management
 
-[![trello.png](https://www.imageupload.net/upload-image/2020/02/20/trello.png)](https://www.imageupload.net/image/RIK6c)
+<a href="https://ibb.co/SRYZT3L"><img src="https://i.ibb.co/TmjNXgC/asasasas.png" alt="asasasas" border="0"></a>
 
 <a name="ris"></a>
 ## Risk Assessment
