@@ -80,7 +80,7 @@ pip install -r requirements.txt
 ### Entity Relationship Diagrams
 Initial Plan and Delivered Solution ( in blue ):
 
-<a href="https://ibb.co/G7xnk9F"><img src="https://i.ibb.co/tBmQcz3/gfdfd.png" alt="gfdfd" border="0"></a>
+<a href="https://ibb.co/wY3DvrF"><img src="https://i.ibb.co/0Q8PwVR/gfdfd.png" alt="gfdfd" border="0"></a>
 
 As shown in this ERD, I ended up changing the focus of the tables Users, Product, Review and favou ( Favourites). Here is explaned the relationship on my database.
 
