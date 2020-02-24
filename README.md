@@ -71,6 +71,7 @@ pip install -r requirements.txt
 <a name="ris"></a>
 ## Risk Assessment
 
+<a href="https://ibb.co/FsJ2HbT"><img src="https://i.ibb.co/s5QnWvY/riskassements.png" alt="riskassements" border="0"></a>
 
 <a name="arch"></a>
 ## Architecture
