@@ -4,7 +4,7 @@ from flask import abort, url_for
 from flask_testing import TestCase
 import os
 from application import app, db
-from application.models import Users, Posts
+from application.models import Users, Products
 class TestBase(TestCase):
 
     def create_app(self):

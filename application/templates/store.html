@@ -30,25 +30,27 @@
                 {{ form.price.label }}
                 {{ form.price }}
               <p> <br> 
-               <button type="submit">Add Product</button>
-      </form>            
+               <button type="submit">Add Product</button><p>
+-----------------------------------------------------------------     
+ </form>            
 </div>
 <p>
     {% if products %}
     {% for product in products %}
-    product = request.form.get('Product Name')        
+   <!--  product = request.form.get('Product Name') -->        
 <Table>
 <th><p>Product Name: {{ product.productname }}</p>
     <p>Product Vendor: {{ product.productvendor }}</p>
     <p>Product Description: {{ product.productdescription }}</p>
     <p>Price: {{ product.price }}</p></th>
-</table>
+</table><p>
         <form method='POST' action="{{ url_for('favou_add', id=product.id, productcode=product.productcode)}}">
         <button type="submit">Add Product as a favourite</button>
         </form>
-       <form method='DELETE' action="{{ url_for('store_delete', id=product.id)}}">
+       <form method='POST' action="{{ url_for('store_delete', id=product.productcode)}}">
         <button type="submit">Delete Product</button>
-        </form>
+        </form><p>
+-----------------------------------------------------------------
    {% endfor %}   
    {% else %}
        <p>There are no products </p>

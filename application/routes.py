@@ -56,7 +56,7 @@ def register():
 def favou_add(productcode):
    product = Products.query.filter_by(productcode=productcode).first()
    if product:
-      favou=Favou(id=current_user.id,productcode=product.productcode) 
+      favou=Favou(id=current_user.id,productcode=product.productcode)
       db.session.add(favou)
       db.session.commit()
    return redirect(url_for('account'))
@@ -66,7 +66,7 @@ def favou_add(productcode):
 @app.route('/favou/<productcode>', methods=["POST"])
 @login_required
 def favou_delete(productcode):
-    product =Products.query.filter_by(productcode=productcode).first()
+    product = Products.query.filter_by(productcode=productcode).first()
     if product:
       favou=Favou.query.filter_by(productcode=product.productcode,id=current_user.id).first()
       db.session.delete(favou)
@@ -134,34 +134,37 @@ def store():
 
 
 #update
-@app.route('/store', methods=['GET', 'POST'])
-@login_required
-def store_update():
-    form = UpdateStoreForm()
-    if form.validate_on_submit():
-        current_user.productname = form.productname.data
-        current_user.productvendor = form.productvendor.data
-        current_user.productdescription = form.productdescription.data
-        current_user.price = form.price.data
-        db.session.commit()
-        return redirect(url_for('store'))
-    elif request.method == 'GET':
-        form.productname.data = current_user.productname
-        form.productvendor.data = current_user.productvendor
-        form.productdescription.data = current_user.productdescription
-        form.price = current_user.price
-    return render_template('store.html', title='store', form=form)
+#@app.route('/store', methods=['GET', 'POST'])
+#@login_required
+#def store_update():
+#    form = UpdateStoreForm()
+#    if form.validate_on_submit():
+#        current_user.productname = form.productname.data
+#        current_user.productvendor = form.productvendor.data
+#        current_user.productdescription = form.productdescription.data
+#        current_user.price = form.price.data
+#        db.session.commit()
+#        return redirect(url_for('store'))
+#    elif request.method == 'GET':
+#        form.productname.data = current_user.productname
+#        form.productvendor.data = current_user.productvendor
+#        form.productdescription.data = current_user.productdescription
+#        form.price = current_user.price
+#    return render_template('store.html', title='store', form=form)
+
+
 
 #delete
-@app.route('/store', methods=["GET", "POST"])
+@app.route('/store', methods=[ "POST"])
 @login_required
-def store_delete():
+def store_delete(productcode):
     form = product()
-    product = request.form.get('productname')
-    product = Products.query.filter_by(productname=form).first()
+    product = request.form.get('productcode')
+    product = Products.query.filter_by(productcode=productcode).first()
     db.session.delete(product)
     db.session.commit()
     return render_template('store.html', title='store', form=form)
+
 
 
 #ACCOUNT ___________________________________________________________
